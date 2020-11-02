@@ -19,11 +19,11 @@ class ProfileController extends Controller
         return view('profile.index',compact('data'));
        
     }
-    public function conf()
-    {
-        $title = Profile::where('id',1)->first();
-        return view('layouts.default',compact('title'));
-    }
+    // public function conf()
+    // {
+    //     $title = Profile::where('id',1)->first();
+    //     return view('layouts.default',compact('title'));
+    // }
     
 
     /**
@@ -50,11 +50,11 @@ class ProfileController extends Controller
         }
     }
 
-    public function edit_profile($id)
-    {
-        $data = Profile::findOrfail($id);
-        return view('profile.edit',compact('data'));
-    }
+    // public function edit_profile($id)
+    // {
+    //     $data = Profile::findOrfail($id);
+    //     return view('profile.edit',compact('data'));
+    // }
     public function create()
     {
         //
@@ -102,20 +102,14 @@ class ProfileController extends Controller
      */
     public function update_profile(Request $request, $id)
     {
-        $data = $request->validate([
-            'nama_pengaturan' => 'required',
-            'data_pengaturan' => 'required|unique:profiles',
+       
+        DB::table('profiles')->where('id',$request->id)->update([
+            'nama_pengaturan' => $request->nama_pengaturan,
+            'data_pengaturan' => $request->data_pengaturan
+           
         ]);
-        
-        
-        if ($data) {
-
-            $data = Profile::find($id);
-            $data->nama_pengaturan =$request->get('nama_pengaturan');
-            $data->data_pengaturan =$request->get('data_pengaturan');
-            $data->save(); 
             return redirect('/Pengaturan/profile');
-        }
+        
     }
 
     /**

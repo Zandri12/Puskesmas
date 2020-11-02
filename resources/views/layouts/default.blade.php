@@ -11,7 +11,12 @@
 		 $title = App\Profile::where('id',1)->first();
 		
 	@endphp
-    <title>{{$title->data_pengaturan}} </title>
+	@if ($title == null)
+		<title>Puskesmas</title>
+	@else
+		<title>{{$title->data_pengaturan}} </title>
+	@endif
+    
     <!-- Favicon icon -->
 	<link rel="icon" type="image/png" sizes="16x16" href="{{ asset ('template/images/favicon.png')}}">
 	<link rel="stylesheet" href="{{ asset ('template/vendor/toastr/css/toastr.min.css')}}">
@@ -22,6 +27,7 @@
 	 <!-- Datatable -->
 	 <link href="{{ asset ('template/vendor/datatables/css/jquery.dataTables.min.css')}}" rel="stylesheet">
 	{{-- <link href="../../cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet"> --}}
+
 
 </head>
 <body>
@@ -593,20 +599,7 @@
         <div class="content-body">
             <!-- row -->
 			<div class="container-fluid">
-				<div class="form-head d-flex mb-3 mb-md-5 align-items-start">
-					<div class="mr-auto d-none d-lg-block">
-						<h3 class="text-primary font-w600">Welcome to Mediqu!</h3>
-						<p class="mb-0">Hospital Admin Dashboard Template</p>
-					</div>
-					
-					<div class="input-group search-area ml-auto d-inline-flex">
-						<input type="text" class="form-control" placeholder="Search here">
-						<div class="input-group-append">
-							<span class="input-group-text"><i class="flaticon-381-search-2"></i></span>
-						</div>
-					</div>
-					<a href="javascript:void(0);" class="btn btn-primary ml-3"><i class="flaticon-381-settings-2 mr-0"></i></a>
-				</div>
+				@yield('welcome')
                @yield('content')
             </div>
         </div>
@@ -662,6 +655,21 @@
 
 	 <!-- All init script -->
 	 <script src="{{ asset ('template/js/plugins-init/toastr-init.js')}}"></script>
+		<script type="text/javascript">
+			
+			var timeDisplay = document.getElementById("time");
+
+
+			function refreshTime() {
+			var dateString = new Date().toLocaleString("in-Asia", {timeZone: "Asia/Jakarta"});
+			var formattedString = dateString.replace(", ", " - ");
+			timeDisplay.innerHTML = formattedString;
+			}
+
+			setInterval(refreshTime, 1000);
+		</script>
+	 
+
 </body>
 
 <!-- Mirrored from mediqu.dexignzone.com/xhtml/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 30 Oct 2020 06:24:32 GMT -->

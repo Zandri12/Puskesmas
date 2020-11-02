@@ -22,4 +22,4 @@ Route::get('/Pengaturan/profile', 'ProfileController@index')->name('profil');
 Route::post('/Pengaturan/profile/tambah_profile', 'ProfileController@tambah_profile')->name('tambah_profil');
 Route::get('/Pengaturan/profile/edit/{id}', 'ProfileController@edit_profile')->name('edit_profil');
 Route::post('/Pengaturan/profile/update/{id}', 'ProfileController@update_profile')->name('update_profil');
-Route::get('/Pengaturan/profile/delete/{id}', 'ProfileController@delete_profile')->name('update_profil');
+Route::get('/Pengaturan/profile/delete/{id}', 'ProfileController@delete_profile')->name('delete_profil');
