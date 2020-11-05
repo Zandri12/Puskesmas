@@ -23,3 +23,7 @@ Route::post('/Pengaturan/profile/tambah_profile', 'ProfileController@tambah_prof
 Route::get('/Pengaturan/profile/edit/{id}', 'ProfileController@edit_profile')->name('edit_profil');
 Route::post('/Pengaturan/profile/update/{id}', 'ProfileController@update_profile')->name('update_profil');
 Route::get('/Pengaturan/profile/delete/{id}', 'ProfileController@delete_profile')->name('delete_profil');
+
+
+Route::get('/pengguna', 'Pengguna@semua_pengguna')->name('semua_pengguna');
+Route::post('/pengguna/tambah', 'Pengguna@tambah_pengguna')->name('tambah_pengguna');

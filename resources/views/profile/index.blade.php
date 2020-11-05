@@ -4,14 +4,14 @@
 <div class="row page-titles mx-0">
     <div class="col-sm-6 p-md-0">
         <div class="welcome-text">
-            <h4>Hi, welcome back!</h4>
-            <p class="mb-0">Validation</p>
+            <h4>Profil Puskesmas</h4>
+            
         </div>
     </div>
     <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="javascript:void(0)">Form</a></li>
-            <li class="breadcrumb-item active"><a href="javascript:void(0)">Validation</a></li>
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Pengaturan</a></li>
+            <li class="breadcrumb-item active"><a href="javascript:void(0)">Profil Pegguna</a></li>
         </ol>
     </div>
 </div>
@@ -113,7 +113,7 @@
 
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                <button type="submit" class="btn btn-primary">Simpan Data</button>
                 </form>
                 <button type="button" class="btn btn-danger light" data-dismiss="modal">Tutup</button>
             </div>
