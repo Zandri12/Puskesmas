@@ -36,6 +36,12 @@
     </ul>
 </div>
 @endif
+@if ($message = Session::get('warning'))
+    <div class="alert alert-warning alert-block">
+    <button type="button" class="close" data-dismiss="alert">×</button> 
+    <strong>{{ $message }}</strong>
+</div>
+@endif
 @if ($message = Session::get('success'))
       <div class="alert alert-success alert-block">
         <button type="button" class="close" data-dismiss="alert">×</button> 
@@ -89,7 +95,7 @@
                                     data-role="{{$data['role']}}"
                                     data-pangkat="{{$data['pangkat']}}"
                                     data-golongan="{{$data['golongan']}}"data-target="#editModal"><i class="fa fa-pencil"></i></button>
-                                <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
+                                <a href="/pengguna/delete/{{$data['id']}}" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
                                 <a href="#" class="btn btn-info shadow btn-xs sharp"><i class="fa fa-eye"></i></a>
                             </td>										
                         </tr> 
@@ -113,50 +119,55 @@
                 <form method="POST" action="{{route('tambah_pengguna')}}">
                     @csrf
                     <div class="form-group">
-                        {{-- <label>Nama Pengaturan</label> --}}
+                        <label>Nama Pengguna</label>
                         <input type="text"
                             class="form-control input-rounded @error('nama') is-invalid @enderror"
                             name="nama" placeholder="Nama Pengguna">
                     </div>
                     
                     <div class="form-group">
-                        {{-- <label>Data Pengaturan</label> --}}
+                        <label>Tanggal Lahir</label>
                         <input type="date" class="form-control input-rounded @error('lahir') is-invalid @enderror" name="tgl_lahir"
                            >
                     </div>
                     <div class="form-group">
-                        {{-- <label>Nama Pengaturan</label> --}}
+                        <label>Email</label>
                         <input type="email"
                             class="form-control input-rounded @error('Email') is-invalid @enderror"
                             name="email" placeholder="Email Pengguna">
                     </div>
                     <div class="form-group">
-                        {{-- <label>Nama Pengaturan</label> --}}
+                        <label>Alamat</label>
                         <textarea name="alamat" class="form-control @error('alamat') is-invalid @enderror" placeholder="Alamat Pengguna...."></textarea>
                       
                     </div>
                     <div class="form-group">
                         <div class="form-group mb-0">
+                            <label>Hak Akses</label>
+                            <hr>
                             <label class="radio-inline mr-3"><input type="radio" name="role" value="1"> Admin</label>
                             <label class="radio-inline mr-3"><input type="radio" name="role" value="2"> Co-Admin</label>
                             <label class="radio-inline mr-3"><input type="radio" name="role" value="3"> Operator</label>
                         </div>
                     </div>
                     <div class="form-group">
+                          <label>Data Induk</label>
                         <div class="row">
-                            <div class="col-sm-6">  
+                            <div class="col-sm-6"> 
+                                 
                                 <select name="pangkat" class="" id="pangkat">
+                                    <option selected>Pilih Golongan...</option>
                                     @foreach ($data_induk as $data_induk)
-                                    <option selected>Pilih Pangkat...</option>
                                     <option value="{{$data_induk['pangkat']}}">{{$data_induk['pangkat']}}</option> 
-                                   
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="col-sm-6 mt-2 mt-sm-0">
                                 <select name="golongan" class="" id="golongan">
                                     <option selected>Pilih Golongan...</option>
+                                    @foreach ($data_induk as $data_induk)
                                     <option value="{{$data_induk['golongan']}}">{{$data_induk['golongan']}}</option>
-                                   
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
@@ -179,28 +190,28 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="{{route('update_pengguna','data')}}" enctype="multipart/form-data">
+                <form method="POST" action="{{route('tambah_pengguna')}}">
                     @csrf
-                    <input type="hidden" name="id" id="id">
                     <div class="form-group">
-                        {{-- <label>Nama Pengaturan</label> --}}
+                        <label>Nama Pengguna</label>
                         <input type="text"
                             class="form-control input-rounded @error('nama') is-invalid @enderror"
                             name="nama" id="nama" placeholder="Nama Pengguna">
                     </div>
+                    
                     <div class="form-group">
-                        {{-- <label>Data Pengaturan</label> --}}
+                        <label>Tanggal Lahir</label>
                         <input type="date" id="tgl_lahir" class="form-control input-rounded @error('lahir') is-invalid @enderror" name="tgl_lahir"
                            >
                     </div>
                     <div class="form-group">
-                        {{-- <label>Nama Pengaturan</label> --}}
+                        <label>Email</label>
                         <input type="email"
                             class="form-control input-rounded @error('Email') is-invalid @enderror"
                             name="email" id="email" placeholder="Email Pengguna">
                     </div>
                     <div class="form-group">
-                        {{-- <label>Nama Pengaturan</label> --}}
+                        <label>Alamat</label>
                         <textarea name="alamat" id="alamat" class="form-control @error('alamat') is-invalid @enderror" placeholder="Alamat Pengguna...."></textarea>
                       
                     </div>
@@ -218,24 +229,26 @@
                         </div>
                     </div>
                     <div class="form-group">
+                          <label>Data Induk</label>
                         <div class="row">
                             <div class="col-sm-6">  
                                 <select name="pangkat" class="" id="pangkat">
-                                    <option selected>Pilih Pangkat...</option>
+                                    <option selected>Pilih Golongan...</option>
+                                    @foreach ($data_induk as $data_induk)
                                     <option value="{{$data_induk['pangkat']}}">{{$data_induk['pangkat']}}</option> 
-                                   
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="col-sm-6 mt-2 mt-sm-0">
                                 <select name="golongan" class="" id="golongan">
                                     <option selected>Pilih Golongan...</option>
+                                    @foreach ($data_induk as $data_induk)
                                     <option value="{{$data_induk['golongan']}}">{{$data_induk['golongan']}}</option>
-                                   
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
                     </div>
-                    @endforeach
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary">Simpan Data</button>
