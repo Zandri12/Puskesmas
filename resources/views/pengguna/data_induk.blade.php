@@ -75,8 +75,8 @@
                                     data-pangkat="{{$data['pangkat']}}"
                                     data-golongan="{{$data['golongan']}}" 
                                     data-target="#editModal"><i class="fa fa-pencil"></i></button>
-                                <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
-                                <a href="#" class="btn btn-info shadow btn-xs sharp"><i class="fa fa-eye"></i></a>
+                                <a href="/pengguna//data_induk/delete/{{$data['id']}}" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
+                               
                             </td>										
                         </tr> 
                         @endforeach
@@ -128,43 +128,20 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="{{route('update_pengguna','data')}}" enctype="multipart/form-data">
+                <form method="POST" action="{{route('update_data_induk','data')}}" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" name="id" id="id">
                     <div class="form-group">
-                        {{-- <label>Nama Pengaturan</label> --}}
+                       
                         <input type="text"
-                            class="form-control input-rounded @error('nama') is-invalid @enderror"
-                            name="nama" id="nama" placeholder="Nama Pengguna">
+                            class="form-control input-rounded @error('pangkat') is-invalid @enderror"
+                            name="pangkat" id="pangkat" placeholder="Pangkat...">
                     </div>
                     <div class="form-group">
-                        {{-- <label>Data Pengaturan</label> --}}
-                        <input type="date" id="tgl_lahir" class="form-control input-rounded @error('lahir') is-invalid @enderror" name="tgl_lahir"
-                           >
-                    </div>
-                    <div class="form-group">
-                        {{-- <label>Nama Pengaturan</label> --}}
-                        <input type="email"
-                            class="form-control input-rounded @error('Email') is-invalid @enderror"
-                            name="email" id="email" placeholder="Email Pengguna">
-                    </div>
-                    <div class="form-group">
-                        {{-- <label>Nama Pengaturan</label> --}}
-                        <textarea name="alamat" id="alamat" class="form-control @error('alamat') is-invalid @enderror" placeholder="Alamat Pengguna...."></textarea>
-                      
-                    </div>
-                    <div class="form-group">
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <label class="input-group-text">Hak Akses</label>
-                            </div>
-                            <select name="role" class="" id="role">
-                                <option selected>Pilih...</option>
-                                <option value="1">Admin</option>
-                                <option value="2">Co-Admin</option>
-                                <option value="3">Operator</option>
-                            </select>
-                        </div>
+                       
+                        <input type="text"
+                            class="form-control input-rounded @error('golongan') is-invalid @enderror"
+                            name="golongan" id="golongan" placeholder="Golongan...">
                     </div>
             </div>
             <div class="modal-footer">
@@ -186,11 +163,8 @@
                 var modal = $(this)
 
                 modal.find('.modal-body #id').val(id);
-                modal.find('.modal-body #nama').val(nama);
-                modal.find('.modal-body #tgl_lahir').val(tgl_lahir);
-                modal.find('.modal-body #alamat').val(alamat);
-                modal.find('.modal-body #email').val(email);
-                modal.find('.modal-body #role').val(role);
+                modal.find('.modal-body #pangkat').val(pangkat);
+                modal.find('.modal-body #golongan').val(golongan);
             })
         })
 </script>

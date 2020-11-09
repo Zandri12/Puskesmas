@@ -57,6 +57,8 @@
                             <th>Tanggal Lahir</th>
                             <th>Alamat</th>
                             <th>Email</th>
+                            <th>Pangkat</th>
+                            <th>Golongan</th>
                             <th>Hak Akses</th>
                             <th>Status</th>
                             <th>Aksi</th>
@@ -73,6 +75,8 @@
                             <td>{{$data['tgl_lahir']}}</td>
                             <td>{{$data['alamat']}}</td>
                             <td>{{$data['email']}}</td>
+                            <td>{{$data['pangkat']}}</td>
+                            <td>{{$data['golongan']}}</td>
                             <td>{{$data['role']}}</td>
                             <td></td>
                             <td>
@@ -82,7 +86,9 @@
                                     data-tgl_lahir="{{$data['tgl_lahir']}}" 
                                     data-alamat="{{$data['alamat']}}"
                                     data-email="{{$data['email']}}"
-                                    data-role="{{$data['role']}}"data-target="#editModal"><i class="fa fa-pencil"></i></button>
+                                    data-role="{{$data['role']}}"
+                                    data-pangkat="{{$data['pangkat']}}"
+                                    data-golongan="{{$data['golongan']}}"data-target="#editModal"><i class="fa fa-pencil"></i></button>
                                 <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
                                 <a href="#" class="btn btn-info shadow btn-xs sharp"><i class="fa fa-eye"></i></a>
                             </td>										
@@ -112,6 +118,7 @@
                             class="form-control input-rounded @error('nama') is-invalid @enderror"
                             name="nama" placeholder="Nama Pengguna">
                     </div>
+                    
                     <div class="form-group">
                         {{-- <label>Data Pengaturan</label> --}}
                         <input type="date" class="form-control input-rounded @error('lahir') is-invalid @enderror" name="tgl_lahir"
@@ -133,6 +140,25 @@
                             <label class="radio-inline mr-3"><input type="radio" name="role" value="1"> Admin</label>
                             <label class="radio-inline mr-3"><input type="radio" name="role" value="2"> Co-Admin</label>
                             <label class="radio-inline mr-3"><input type="radio" name="role" value="3"> Operator</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-6">  
+                                <select name="pangkat" class="" id="pangkat">
+                                    @foreach ($data_induk as $data_induk)
+                                    <option selected>Pilih Pangkat...</option>
+                                    <option value="{{$data_induk['pangkat']}}">{{$data_induk['pangkat']}}</option> 
+                                   
+                                </select>
+                            </div>
+                            <div class="col-sm-6 mt-2 mt-sm-0">
+                                <select name="golongan" class="" id="golongan">
+                                    <option selected>Pilih Golongan...</option>
+                                    <option value="{{$data_induk['golongan']}}">{{$data_induk['golongan']}}</option>
+                                   
+                                </select>
+                            </div>
                         </div>
                     </div>
             </div>
@@ -191,6 +217,25 @@
                             </select>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-6">  
+                                <select name="pangkat" class="" id="pangkat">
+                                    <option selected>Pilih Pangkat...</option>
+                                    <option value="{{$data_induk['pangkat']}}">{{$data_induk['pangkat']}}</option> 
+                                   
+                                </select>
+                            </div>
+                            <div class="col-sm-6 mt-2 mt-sm-0">
+                                <select name="golongan" class="" id="golongan">
+                                    <option selected>Pilih Golongan...</option>
+                                    <option value="{{$data_induk['golongan']}}">{{$data_induk['golongan']}}</option>
+                                   
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary">Simpan Data</button>
@@ -211,6 +256,8 @@
                 var alamat = button.data('alamat')
                 var email = button.data('email')
                 var role = button.data('role')
+                var pangkat = button.data('pangkat')
+                var golongan = button.data('golongan')
                 var modal = $(this)
 
                 modal.find('.modal-body #id').val(id);
@@ -219,6 +266,8 @@
                 modal.find('.modal-body #alamat').val(alamat);
                 modal.find('.modal-body #email').val(email);
                 modal.find('.modal-body #role').val(role);
+                modal.find('.modal-body #pangkat').val(pangkat);
+                modal.find('.modal-body #golongan').val(golongan);
             })
         })
 </script>

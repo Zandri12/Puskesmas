@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Data_induk;
-
+use DB;
 use Illuminate\Http\Request;
 
 class DataIndukController extends Controller
@@ -45,6 +45,15 @@ class DataIndukController extends Controller
         }
     }
 
+    public function update(Request $request,$id)
+    {
+        DB::table('data_induks')->where('id',$request->id)->update([
+            'pangkat' => $request->pangkat,
+            'golongan' => $request->golongan
+           
+        ]);
+            return redirect('/pengguna/data_induk')->with(['success' => 'Data Berhasil Diubah!!']);
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -85,10 +94,7 @@ class DataIndukController extends Controller
      * @param  \App\Data_induk  $data_induk
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Data_induk $data_induk)
-    {
-        //
-    }
+    
 
     /**
      * Remove the specified resource from storage.
@@ -96,8 +102,10 @@ class DataIndukController extends Controller
      * @param  \App\Data_induk  $data_induk
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Data_induk $data_induk)
+    public function delete($id)
     {
-        //
+        $data = Data_induk::find($id);
+        $data->delete();
+        return redirect()->back();
     }
 }

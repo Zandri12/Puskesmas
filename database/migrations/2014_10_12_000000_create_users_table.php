@@ -17,6 +17,8 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id');
             $table->string('nama');
             $table->string('tgl_lahir')->nullable();
+            $table->string('pangkat')->nullable();
+            $table->string('golongan')->nullable();
             $table->string('role')->nullable();
             $table->string('alamat')->nullable();
             $table->string('email')->unique();

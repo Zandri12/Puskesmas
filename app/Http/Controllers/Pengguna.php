@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Data_induk;
 use DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -18,7 +19,8 @@ class Pengguna extends Controller
     public function semua_pengguna()
     {
         $data = User::all();
-        return view('Pengguna.index',compact('data'));
+        $data_induk = Data_induk::all();
+        return view('Pengguna.index',compact('data','data_induk'));
         
     }
 
@@ -30,6 +32,8 @@ class Pengguna extends Controller
             'tgl_lahir'=>'max:255',
             'alamat'=>'max:255',
             'role'=>'required',
+            'pangkat'=> 'max:255',
+            'golongan' => 'max:255',
             'email' => 'required|unique:users',
             
         ]);
@@ -42,6 +46,8 @@ class Pengguna extends Controller
                 'tgl_lahir' => $data['tgl_lahir'],
                 'alamat' => $data['alamat'],
                 'role' => $data['role'],
+                'pangkat' => $data['pangkat'],
+                'golongan' => $data['golongan'],
                 'email' => $data['email'],
                 $password = '12312312',
                 'password' => Hash::make($password)
@@ -58,7 +64,10 @@ class Pengguna extends Controller
             'tgl_lahir' => $request->tgl_lahir,
             'alamat' => $request->alamat,
             'email' => $request->email,
-            'role' => $request->role
+            'role' => $request->role,
+            'pangkat' => $request->pangkat,
+            'golongan' => $request->golongan
+
            
         ]);
             return redirect('/pengguna')->with(['success' => 'Data Berhasil Diubah!!']);
