@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -16,7 +17,8 @@ class Pengguna extends Controller
      */
     public function semua_pengguna()
     {
-        return view('Pengguna.index');
+        $data = User::all();
+        return view('Pengguna.index',compact('data'));
         
     }
 
@@ -40,11 +42,25 @@ class Pengguna extends Controller
                 'alamat' => $data['alamat'],
                 'role' => $data['role'],
                 'email' => $data['email'],
-                'password' => Hash::make($request['12312312'])
+                $password = '12312312',
+                'password' => Hash::make($password)
                
             ]);
-            return redirect('/Pengaturan/pengguna');
+            return redirect('/pengguna')->with(['success' => 'Data Berhasil Disimpan!!']);
         }
+    }
+
+    public function update_pengguna(Request $request,$id)
+    {
+        DB::table('users')->where('id',$request->id)->update([
+            'nama' => $request->nama,
+            'tgl_lahir' => $request->tgl_lahir,
+            'alamat' => $request->alamat,
+            'email' => $request->email,
+            'role' => $request->role
+           
+        ]);
+            return redirect('/pengguna')->with(['success' => 'Data Berhasil Diubah!!']);
     }
     /**
      * Show the form for creating a new resource.

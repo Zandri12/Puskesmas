@@ -27,3 +27,4 @@ Route::get('/Pengaturan/profile/delete/{id}', 'ProfileController@delete_profile'
 
 Route::get('/pengguna', 'Pengguna@semua_pengguna')->name('semua_pengguna');
 Route::post('/pengguna/tambah', 'Pengguna@tambah_pengguna')->name('tambah_pengguna');
+Route::post('/pengguna/update/{id}', 'Pengguna@update_pengguna')->name('update_pengguna');

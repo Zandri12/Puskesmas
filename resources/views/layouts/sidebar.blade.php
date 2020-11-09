@@ -51,7 +51,7 @@
                     <li><a href="map-jqvmap.html">Jqv Map</a></li>
                 </ul>
             </li>
-            <li><a class="flaticon-381-lock-2" href="#" aria-expanded="false">
+            <li><a class="flaticon-381-lock-2" href="#" data-target="#info" data-toggle="modal" aria-expanded="false">
                 <i class="flaticon-381-file-2"></i>
                 <span class="nav-text">Pustu</span>
             </a>
@@ -65,12 +65,12 @@
     
        
         <div class="copyright">
-            <p><strong>Puskesmas bungo</strong> © 2020 All Rights Reserved</p>
-            <p>Made with <i class="fa fa-heart"></i> by <a href=""></a></p>
+            <p><strong>Puskesmas Bungo</strong> © 2020 All Rights Reserved</p>
+            <p>Dibuat Oleh <a href="https://github.com/Zandri12">Syukriatul Zandri</a></p>
         </div>
     </div>
 </div>
-<div class="modal fade" id="tambahdata">
+<div class="modal fade" id="info">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">

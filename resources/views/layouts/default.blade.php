@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	@php
-		 $title = App\Profile::where('id',1)->first();
+		 $title = App\Profile::first();
 		
 	@endphp
 	@if ($title == null)
