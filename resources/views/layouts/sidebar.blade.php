@@ -33,7 +33,7 @@
                 </a>
                 <ul aria-expanded="false">
                     <li><a href="{{route('semua_pengguna')}}">Semua Pengguna</a></li>
-                    <li><a href="ui-alert.html">Data Induk</a></li>
+                    <li><a href="{{route('data_induk')}}">Data Induk</a></li>
                     
 
                 </ul>

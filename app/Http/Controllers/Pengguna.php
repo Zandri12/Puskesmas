@@ -22,6 +22,7 @@ class Pengguna extends Controller
         
     }
 
+
     public function tambah_pengguna(Request $request)
     {
         $data = $request->validate([

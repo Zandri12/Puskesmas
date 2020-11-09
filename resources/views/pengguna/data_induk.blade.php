@@ -4,14 +4,14 @@
 <div class="row page-titles mx-0">
     <div class="col-sm-6 p-md-0">
         <div class="welcome-text">
-            <h4>Semua Pengguna</h4>
+            <h4>Data Induk</h4>
            
         </div>
     </div>
     <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
         <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="#">Pengguna</a></li>
-        <li class="breadcrumb-item active"><a href="{{route('semua_pengguna')}}">Semua Pengguna</a></li>
+        <li class="breadcrumb-item active"><a href="{{route('data_induk')}}">Data Induk</a></li>
         </ol>
     </div>
 </div>
@@ -37,15 +37,16 @@
 </div>
 @endif
 @if ($message = Session::get('success'))
-      <div class="alert alert-success alert-block">
-        <button type="button" class="close" data-dismiss="alert">×</button> 
-          <strong>{{ $message }}</strong>
-      </div>
-    @endif
+    <div class="alert alert-success alert-block">
+    <button type="button" class="close" data-dismiss="alert">×</button> 
+        <strong>{{ $message }}</strong>
+    </div>
+@endif
+
 <div class="col-12">
     <div class="card">
         <div class="card-header">
-            <h4 class="card-title">Daftar Pengguna</h4>
+            <h4 class="card-title">Data Induk</h4>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -53,12 +54,8 @@
                     <thead>
                         <tr>
                             <th></th>
-                            <th>Nama</th>
-                            <th>Tanggal Lahir</th>
-                            <th>Alamat</th>
-                            <th>Email</th>
-                            <th>Hak Akses</th>
-                            <th>Status</th>
+                            <th>Pangkat</th>
+                            <th>Golongan</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -69,20 +66,15 @@
                         @foreach ($data as $data)
                         <tr>
                             <td>{{$d++}}</td>
-                            <td>{{$data['nama']}}</td>
-                            <td>{{$data['tgl_lahir']}}</td>
-                            <td>{{$data['alamat']}}</td>
-                            <td>{{$data['email']}}</td>
-                            <td>{{$data['role']}}</td>
-                            <td></td>
+                            <td>{{$data['pangkat']}}</td>
+                            <td>{{$data['golongan']}}</td>
+                           
                             <td>
                                 <button type="button" class="mr-1 shadow btn btn-warning btn-xs sharp"
                                     data-toggle="modal" data-id="{{ $data['id'] }}"
-                                    data-nama="{{$data['nama']}}"
-                                    data-tgl_lahir="{{$data['tgl_lahir']}}" 
-                                    data-alamat="{{$data['alamat']}}"
-                                    data-email="{{$data['email']}}"
-                                    data-role="{{$data['role']}}"data-target="#editModal"><i class="fa fa-pencil"></i></button>
+                                    data-pangkat="{{$data['pangkat']}}"
+                                    data-golongan="{{$data['golongan']}}" 
+                                    data-target="#editModal"><i class="fa fa-pencil"></i></button>
                                 <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
                                 <a href="#" class="btn btn-info shadow btn-xs sharp"><i class="fa fa-eye"></i></a>
                             </td>										
@@ -104,36 +96,19 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="{{route('tambah_pengguna')}}">
+                <form method="POST" action="{{route('tambah_data_induk')}}">
                     @csrf
                     <div class="form-group">
-                        {{-- <label>Nama Pengaturan</label> --}}
+                       
                         <input type="text"
-                            class="form-control input-rounded @error('nama') is-invalid @enderror"
-                            name="nama" placeholder="Nama Pengguna">
+                            class="form-control input-rounded @error('pangkat') is-invalid @enderror"
+                            name="pangkat" placeholder="Pangkat...">
                     </div>
                     <div class="form-group">
-                        {{-- <label>Data Pengaturan</label> --}}
-                        <input type="date" class="form-control input-rounded @error('lahir') is-invalid @enderror" name="tgl_lahir"
-                           >
-                    </div>
-                    <div class="form-group">
-                        {{-- <label>Nama Pengaturan</label> --}}
-                        <input type="email"
-                            class="form-control input-rounded @error('Email') is-invalid @enderror"
-                            name="email" placeholder="Email Pengguna">
-                    </div>
-                    <div class="form-group">
-                        {{-- <label>Nama Pengaturan</label> --}}
-                        <textarea name="alamat" class="form-control @error('alamat') is-invalid @enderror" placeholder="Alamat Pengguna...."></textarea>
-                      
-                    </div>
-                    <div class="form-group">
-                        <div class="form-group mb-0">
-                            <label class="radio-inline mr-3"><input type="radio" name="role" value="1"> Admin</label>
-                            <label class="radio-inline mr-3"><input type="radio" name="role" value="2"> Co-Admin</label>
-                            <label class="radio-inline mr-3"><input type="radio" name="role" value="3"> Operator</label>
-                        </div>
+                       
+                        <input type="text"
+                            class="form-control input-rounded @error('golongan') is-invalid @enderror"
+                            name="golongan" placeholder="Golongan...">
                     </div>
             </div>
             <div class="modal-footer">
@@ -206,11 +181,8 @@
             $('#editModal').on('show.bs.modal',function(event){
                 var button = $(event.relatedTarget)
                 var id = button.data('id')
-                var nama = button.data('nama')
-                var tgl_lahir = button.data('tgl_lahir')
-                var alamat = button.data('alamat')
-                var email = button.data('email')
-                var role = button.data('role')
+                var pangkat = button.data('pangkat')
+                var golongan = button.data('golongan')
                 var modal = $(this)
 
                 modal.find('.modal-body #id').val(id);
