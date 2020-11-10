@@ -124,22 +124,84 @@
                             class="form-control input-rounded @error('nama') is-invalid @enderror"
                             name="nama" placeholder="Nama Pengguna">
                     </div>
-                    
+                    <div class="form-group">
+                        <div class="form-group mb-0">
+                            <label>Jenis Kelamin</label>
+                            <hr>
+                            <label class="radio-inline mr-3"><input type="radio" name="jenis_kelamin" value="laki-laki"> Laki-Laki</label>
+                            <label class="radio-inline mr-3"><input type="radio" name="jenis_kelamin" value="perempuan"> Perempuan</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Tempat Lahir</label>
+                        <textarea name="tempat_lahir" class="form-control @error('tempat_lahir') is-invalid @enderror" placeholder="Tempat Lahir Pengguna...."></textarea>
+                      
+                    </div>
                     <div class="form-group">
                         <label>Tanggal Lahir</label>
                         <input type="date" class="form-control input-rounded @error('lahir') is-invalid @enderror" name="tgl_lahir"
                            >
                     </div>
                     <div class="form-group">
-                        <label>Email</label>
-                        <input type="email"
-                            class="form-control input-rounded @error('Email') is-invalid @enderror"
-                            name="email" placeholder="Email Pengguna">
+                        <label>Nama Ibu Kandung Pengguna</label>
+                        <input type="text"
+                            class="form-control input-rounded @error('nama_ibu_kandung') is-invalid @enderror"
+                            name="nama_ibu_kandung" placeholder="Nama Ibu Kandung Pengguna">
                     </div>
                     <div class="form-group">
                         <label>Alamat</label>
                         <textarea name="alamat" class="form-control @error('alamat') is-invalid @enderror" placeholder="Alamat Pengguna...."></textarea>
                       
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>RT</label>
+                            <input type="text" name="RT" class="form-control" placeholder="RT....">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>RW</label>
+                            <input type="text" name="RW" class="form-control" placeholder="RW....">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Nama Dusun</label>
+                            <input type="text" name="nama_dusun" class="form-control" placeholder="Nama Dusun....">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Nama Desa/Kelurahan</label>
+                            <input type="text" name="nama_desa" class="form-control" placeholder="Nama Desa/Kelurahan....">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Nama Dusun</label>
+                            <input type="text" name="nama_dusun" class="form-control" placeholder="Nama Dusun....">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Nama Desa/Kelurahan</label>
+                            <input type="text" name="nama_desa" class="form-control" placeholder="Nama Desa/Kelurahan....">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Nama Provinsi</label>
+                            <select class="form-control formselect required" placeholder="Select Category"
+                            id="nama_provinsi">
+                            <option value="0" disabled selected>Pilih Provinsi*</option>
+                            @foreach($provinces as $provinces)
+                            <option  value="{{ $provinces->id }}">
+                                {{ ucfirst($provinces->name) }}</option>
+                            @endforeach
+                        </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="kabupaten">Nama Kabupaten</label>
+                            <select class="form-control formselect required" placeholder="Select Sub Category" id="kabupaten">
+
+                            </select>
+                        </div>
+                        
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email"
+                            class="form-control input-rounded @error('Email') is-invalid @enderror"
+                            name="email" placeholder="Email Pengguna">
                     </div>
                     <div class="form-group">
                         <div class="form-group mb-0">
@@ -258,7 +320,29 @@
         </div>
     </div>
 </div>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+    $('#nama_provinsi').on('change', function () {
+    let id = $(this).val();
+    $('#kabupaten').empty();
+    $('#kabupaten').append(`<option value="0" disabled selected>Processing...</option>`);
+    $.ajax({
+    type: 'GET',
+    url: 'GetSubCatAgainstMainCatEdit/' + id,
+    success: function (response) {
+    var response = JSON.parse(response);
+    console.log(response);   
+    $('#kabupaten').empty();
+    $('#kabupaten').append(`<option value="0" disabled selected>Select Sub Category*</option>`);
+    response.forEach(element => {
+        $('#kabupaten').append(`<option value="${element['id']}">${element['name']}</option>`);
+        });
+    }
+});
+});
+});
+</script>
 <script type="text/javascript">
     $(function () {
             $('#editModal').on('show.bs.modal',function(event){

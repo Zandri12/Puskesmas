@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Data_induk;
 use DB;
+use App\Models\Province;
+use App\Models\Regency;
+use App\Models\District;
+use App\Models\Village;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -20,8 +24,17 @@ class Pengguna extends Controller
     {
         $data = User::all();
         $data_induk = Data_induk::all();
-        return view('Pengguna.index',compact('data','data_induk'));
+        $provinces = DB::table("indoregion_provinces")->get();
         
+        $regencies = Regency::all();
+        $districts = District::all();
+        $villages = Village::all();
+       
+        return view('Pengguna.index',compact('data','data_induk','provinces','regencies','districts','villages'));
+        
+    }
+    public function GetSubCatAgainstMainCatEdit($id){
+        echo json_encode(DB::table('indoregion_regencies')->where('province_id', $id)->get());
     }
 
 

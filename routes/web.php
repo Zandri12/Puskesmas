@@ -33,3 +33,4 @@ Route::get('/pengguna/data_induk', 'DataIndukController@data_induk_index')->name
 Route::post('/pengguna/data_induk/tambah', 'DataIndukController@tambah')->name('tambah_data_induk');
 Route::post('/pengguna//data_induk/update/{id}', 'DataIndukController@update')->name('update_data_induk');
 Route::get('/pengguna//data_induk/delete/{id}', 'DataIndukController@delete')->name('delete_data_induk');
+Route::get('GetSubCatAgainstMainCatEdit/{id}', 'Pengguna@GetSubCatAgainstMainCatEdit')->name('provinsi');
