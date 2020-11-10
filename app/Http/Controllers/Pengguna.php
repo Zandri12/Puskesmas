@@ -33,8 +33,12 @@ class Pengguna extends Controller
         return view('Pengguna.index',compact('data','data_induk','provinces','regencies','districts','villages'));
         
     }
-    public function GetSubCatAgainstMainCatEdit($id){
-        echo json_encode(DB::table('indoregion_regencies')->where('province_id', $id)->get());
+    public function GetSubCatAgainstMainCatEdit(Request $request){
+        if($request->has('cat_id')){
+            $parentId = $request->get('cat_id');
+            $data = Category::where('parent_id',$parentId)->get();
+            return ['success'=>true,'data'=>$data];
+        }
     }
 
 

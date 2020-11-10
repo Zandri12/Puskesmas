@@ -35,7 +35,6 @@ class CreateUsersTable extends Migration
             $table->string('pangkat')->nullable();
             $table->string('golongan')->nullable();
             $table->string('no_hp')->nullable();
-            $table->string('no_telepon')->nullable();
             $table->string('role')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();

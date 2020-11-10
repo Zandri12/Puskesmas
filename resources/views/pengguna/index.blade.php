@@ -163,6 +163,18 @@
                             <input type="text" name="RW" class="form-control" placeholder="RW....">
                         </div>
                         <div class="form-group col-md-6">
+                            <label>Nama Propinsi</label>
+                            <input type="text" name="nama_provinsi" class="form-control" placeholder="Nama Propinsi....">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Nama Kabupaten</label>
+                            <input type="text" name="nama_kabupaten" class="form-control" placeholder="Nama Kabupaten....">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Nama Kecamatan</label>
+                            <input type="text" name="nama_kecamatan" class="form-control" placeholder="Nama Kecamatan....">
+                        </div>
+                        <div class="form-group col-md-6">
                             <label>Nama Dusun</label>
                             <input type="text" name="nama_dusun" class="form-control" placeholder="Nama Dusun....">
                         </div>
@@ -171,36 +183,52 @@
                             <input type="text" name="nama_desa" class="form-control" placeholder="Nama Desa/Kelurahan....">
                         </div>
                         <div class="form-group col-md-6">
-                            <label>Nama Dusun</label>
-                            <input type="text" name="nama_dusun" class="form-control" placeholder="Nama Dusun....">
+                            <label>Kode Pos</label>
+                            <input type="text" name="kode_pos" class="form-control" placeholder="Kode Pos....">
                         </div>
-                        <div class="form-group col-md-6">
-                            <label>Nama Desa/Kelurahan</label>
-                            <input type="text" name="nama_desa" class="form-control" placeholder="Nama Desa/Kelurahan....">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label>Nama Provinsi</label>
-                            <select class="form-control formselect required" placeholder="Select Category"
-                            id="nama_provinsi">
-                            <option value="0" disabled selected>Pilih Provinsi*</option>
-                            @foreach($provinces as $provinces)
-                            <option  value="{{ $provinces->id }}">
-                                {{ ucfirst($provinces->name) }}</option>
-                            @endforeach
+                    </div>
+                  <div class="form-group">
+                    <label>Agama</label>
+                        <select name="agama" class="form-control @error('agama') is-invalid @enderror"  id="agama">
+                            <option selected>Pilih Agama...</option>
+                            <option value="Islam">Islam</option>
+                            <option value="Khatolik">Khatolik</option>
+                            <option value="Protestan">Protestan</option>
+                            <option value="Hindu">Hindu</option>
+                            <option value="Budha">Budha</option>
+                            <option value="Konguchu">Konguchu</option>
                         </select>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="kabupaten">Nama Kabupaten</label>
-                            <select class="form-control formselect required" placeholder="Select Sub Category" id="kabupaten">
-
+                    </div>
+                    <div class="form-group">
+                        <label>Status Perkawinan</label>
+                            <select name="status_perkawinan" class="form-control @error('status_perkawinan') is-invalid @enderror"  id="status_perkawinan">
+                                <option selected>Pilih...</option>
+                                <option value="Belum Menikah">Belum Menikah</option>
+                                <option value="Menikah">Menikah</option>
                             </select>
-                        </div>
-                        
+                    </div>
+                    <div class="form-group">
+                        <label>Kewarganegaraan</label>
+                        <input type="text"
+                            class="form-control input-rounded @error('kewarganegaraan') is-invalid @enderror"
+                            name="kewarganegaraan" placeholder="kewarganegaraan...">
+                    </div>
+                    <div class="form-group">
+                        <label>NIP</label>
+                        <input type="text"
+                            class="form-control input-rounded @error('NIP') is-invalid @enderror"
+                            name="NIP" placeholder="NIP Pengguna...">
+                    </div>
+                    <div class="form-group">
+                        <label>No Hp</label>
+                        <input type="text"
+                            class="form-control input-rounded @error('no_hp') is-invalid @enderror"
+                            name="no_hp" placeholder="No Hp Pengguna...">
                     </div>
                     <div class="form-group">
                         <label>Email</label>
                         <input type="email"
-                            class="form-control input-rounded @error('Email') is-invalid @enderror"
+                            class="form-control input-rounded @error('email') is-invalid @enderror"
                             name="email" placeholder="Email Pengguna">
                     </div>
                     <div class="form-group">
@@ -218,7 +246,7 @@
                             <div class="col-sm-6"> 
                                  
                                 <select name="pangkat" class="" id="pangkat">
-                                    <option selected>Pilih Golongan...</option>
+                                    <option selected>Pilih Pangkat...</option>
                                     @foreach ($data_induk as $data_induk)
                                     <option value="{{$data_induk['pangkat']}}">{{$data_induk['pangkat']}}</option> 
                                     @endforeach
@@ -322,26 +350,41 @@
 </div>
 
 <script>
-    $(document).ready(function () {
-    $('#nama_provinsi').on('change', function () {
-    let id = $(this).val();
-    $('#kabupaten').empty();
-    $('#kabupaten').append(`<option value="0" disabled selected>Processing...</option>`);
-    $.ajax({
-    type: 'GET',
-    url: 'GetSubCatAgainstMainCatEdit/' + id,
-    success: function (response) {
-    var response = JSON.parse(response);
-    console.log(response);   
-    $('#kabupaten').empty();
-    $('#kabupaten').append(`<option value="0" disabled selected>Select Sub Category*</option>`);
-    response.forEach(element => {
-        $('#kabupaten').append(`<option value="${element['id']}">${element['name']}</option>`);
-        });
-    }
-});
-});
-});
+    $(function () {
+        var 
+        nama_provinsi = $('select[name="nama_provinsi"]'),
+            kabupaten = $('select[name="kabupaten"]');
+
+        loader.hide();
+        kabupaten.attr('disabled','disabled')
+
+        kabupaten.change(function(){
+            var id = $(this).val();
+            if(!id){
+                kabupaten.attr('disabled','disabled')
+            }
+        })
+
+        nama_provinsi.change(function() {
+            var id= $(this).val();
+            if(id){
+                loader.show();
+                kabupaten.attr('disabled','disabled')
+
+                $.get('{{url('/dropdown-data?cat_id=')}}'+id)
+                    .success(function(data){
+                        var s='<option value="">---select--</option>';
+                        data.forEach(function(row){
+                            s +='<option value="'+row.id+'">'+row.name+'</option>'
+                        })
+                        kabupaten.removeAttr('disabled')
+                        kabupaten.html(s);
+                        loader.hide();
+                    })
+            }
+
+        })
+    })
 </script>
 <script type="text/javascript">
     $(function () {
