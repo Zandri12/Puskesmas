@@ -17,9 +17,9 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'nama', 'email','role','alamat','password','tgl_lahir',
-        'jenis_kelamin','tempat_lahir','nama_ibu_kandung','RT',
-        'RW','nama_provinsi','nama_kabupaten','nama_kecamatan','nama_dusun','nama_desa',
-        'kode_pos','agama','status_perkawinan','kewarganegaraan','NIP','no_hp',
+        'jenis_kelamin','tempat_lahir','nama_ibu_kandung','rukun_warga',
+        'rukun_warga','nama_provinsi','nama_kabupaten','nama_kecamatan','nama_dusun','nama_desa',
+        'kode_pos','agama','status_perkawinan','kewarganegaraan','nomor_induk_pegawai','no_hp',
     ];
 
     /**

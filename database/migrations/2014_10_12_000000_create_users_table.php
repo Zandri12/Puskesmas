@@ -21,8 +21,8 @@ class CreateUsersTable extends Migration
             $table->string('tgl_lahir')->nullable();
             $table->string('nama_ibu_kandung')->nullable();
             $table->string('alamat')->nullable();
-            $table->string('RT')->nullable();
-            $table->string('RW')->nullable();
+            $table->string('rukun_tetangga')->nullable();
+            $table->string('rukun_warga')->nullable();
             $table->string('nama_dusun')->nullable();
             $table->string('nama_desa')->nullable();
             $table->string('nama_kecamatan')->nullable();
@@ -32,7 +32,7 @@ class CreateUsersTable extends Migration
             $table->string('agama')->nullable();
             $table->string('status_perkawinan')->nullable();
             $table->string('kewarganegaraan')->nullable();
-            $table->integer('NIP')->nullable();
+            $table->string('nomor_induk_pegawai')->nullable();
             $table->string('pangkat')->nullable();
             $table->string('golongan')->nullable();
             $table->string('no_hp')->nullable();

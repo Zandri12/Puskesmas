@@ -99,9 +99,19 @@
                                 data-tgl_lahir="{{$data['tgl_lahir']}}"
                                 data-nama_ibu_kandung="{{ $data['nama_ibu_kandung'] }}"
                                 data-alamat="{{$data['alamat']}}"
-                                data-RT="{{ $data['RT'] }}"
-                                data-RW="{{ $data['RW'] }}"
-                                data-tempat_lahir="{{ $data['tempat_lahir'] }}" 
+                                data-rukun_tetangga="{{ $data['rukun_tetangga'] }}"
+                                data-rukun_warga="{{ $data['rukun_warga'] }}"
+                                data-nama_provinsi="{{ $data['nama_provinsi'] }}"
+                                data-nama_kabupaten="{{ $data['nama_kabupaten'] }}"
+                                data-nama_kecamatan="{{ $data['nama_kecamatan'] }}"
+                                data-nama_dusun="{{ $data['nama_dusun'] }}"
+                                data-nama_desa="{{ $data['nama_desa'] }}"
+                                data-kode_pos="{{ $data['kode_pos'] }}"
+                                data-agama="{{ $data['agama'] }}"
+                                data-status_perkawinan="{{ $data['status_perkawinan'] }}" 
+                                data-kewarganegaraan="{{ $data['kewarganegaraan'] }}"
+                                data-nomor_induk_pegawai="{{ $data['nomor_induk_pegawai'] }}"
+                                data-no_hp="{{ $data['no_hp'] }}"
                                 data-email="{{$data['email']}}"
                                 data-role="{{$data['role']}}"
                                 data-pangkat="{{$data['pangkat']}}"
@@ -115,8 +125,8 @@
                             <td>{{$data['tgl_lahir']}}</td>
                             <td>{{$data['nama_ibu_kandung']}}</td>
                             <td>{{$data['alamat']}}</td>
-                            <td>{{$data['RT']}}</td>
-                            <td>{{$data['RW']}}</td>
+                            <td>{{$data['rukun_tetangga']}}</td>
+                            <td>{{$data['rukun_warga']}}</td>
                             <td>{{$data['nama_provinsi']}}</td>
                             <td>{{$data['nama_kabupaten']}}</td>
                             <td>{{$data['nama_kecamatan']}}</td>
@@ -125,7 +135,7 @@
                             <td>{{$data['kode_pos']}}</td>
                             <td>{{$data['kewarganegaraan']}}</td>
                             <td>{{$data['email']}}</td>
-                            <td>{{$data['NIP']}}</td>
+                            <td>{{$data['nomor_induk_pegawai']}}</td>
                             <td>{{$data['pangkat']}}</td>
                             <td>{{$data['golongan']}}</td>
                             <td>{{$data['no_hp']}}</td>
@@ -192,11 +202,11 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>RT</label>
-                            <input type="text" name="RT" class="@error('RT') is-invalid @enderror form-control" placeholder="RT....">
+                            <input type="text" name="rukun_tetangga" class="@error('rukun_tetangga') is-invalid @enderror form-control" placeholder="RT....">
                         </div>
                         <div class="form-group col-md-6">
                             <label>RW</label>
-                            <input type="text" name="RW" class="@error('RW') is-invalid @enderror form-control" placeholder="RW....">
+                            <input type="text" name="rukun_warga" class="@error('rukun_warga') is-invalid @enderror form-control" placeholder="RW....">
                         </div>
                         <div class="form-group col-md-6">
                             <label>Nama Propinsi</label>
@@ -252,8 +262,8 @@
                     <div class="form-group">
                         <label>NIP</label>
                         <input type="text"
-                            class="form-control input-rounded @error('NIP') is-invalid @enderror"
-                            name="NIP" placeholder="NIP Pengguna...">
+                            class="form-control input-rounded @error('nomor_induk_pegawai') is-invalid @enderror"
+                            name="nomor_induk_pegawai" placeholder="NIP Pengguna...">
                     </div>
                     <div class="form-group">
                         <label>No Hp</label>
@@ -361,11 +371,11 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>RT</label>
-                            <input type="text" name="RT" id="RT" class="@error('RT') is-invalid @enderror form-control" placeholder="RT....">
+                            <input type="text" name="rukun_tetangga" id="rukun_tetangga" class="@error('rukun_tetangga') is-invalid @enderror form-control" placeholder="RT....">
                         </div>
                         <div class="form-group col-md-6">
                             <label>RW</label>
-                            <input type="text" name="RW" id="RW" class="@error('RW') is-invalid @enderror form-control" placeholder="RW....">
+                            <input type="text" name="rukun_warga" id="rukun_warga" class="@error('rukun_warga') is-invalid @enderror form-control" placeholder="RW....">
                         </div>
                         <div class="form-group col-md-6">
                             <label>Nama Propinsi</label>
@@ -420,9 +430,8 @@
                     </div>
                     <div class="form-group">
                         <label>NIP</label>
-                        <input type="text" id="NIP"
-                            class="form-control input-rounded @error('NIP') is-invalid @enderror"
-                            name="NIP" placeholder="NIP Pengguna...">
+                        <input type="text" id="nomor_induk_pegawai" class="form-control input-rounded @error('nomor_induk_pegawai') is-invalid @enderror"
+                            name="nomor_induk_pegawai" placeholder="NIP Pengguna...">
                     </div>
                     <div class="form-group">
                         <label>No Hp</label>
@@ -492,8 +501,8 @@
                 var tgl_lahir = button.data('tgl_lahir')
                 var nama_ibu_kandung = button.data('nama_ibu_kandung')
                 var alamat = button.data('alamat')
-                var RT = button.data('RT')
-                var RW = button.data('RW')
+                var rukun_tetangga = button.data('rukun_tetangga')
+                var rukun_warga = button.data('rukun_warga')
                 var nama_provinsi = button.data('nama_provinsi')
                 var nama_kabupaten = button.data('nama_kabupaten')
                 var nama_kecamatan = button.data('nama_kecamatan')
@@ -503,7 +512,7 @@
                 var agama = button.data('agama')
                 var status_perkawinan = button.data('status_perkawinan')
                 var kewarganegaraan = button.data('kewarganegaraan')
-                var NIP = button.data('NIP')
+                var nomor_induk_pegawai = button.data('nomor_induk_pegawai')
                 var no_hp = button.data('no_hp')
                 var email = button.data('email')
                 var role = button.data('role')
@@ -518,8 +527,8 @@
                 modal.find('.modal-body #tgl_lahir').val(tgl_lahir);
                 modal.find('.modal-body #nama_ibu_kandung').val(nama_ibu_kandung);
                 modal.find('.modal-body #alamat').val(alamat);
-                modal.find('.modal-body #RT').val(RT);
-                modal.find('.modal-body #RW').val(RW);
+                modal.find('.modal-body #rukun_tetangga').val(rukun_tetangga);
+                modal.find('.modal-body #rukun_warga').val(rukun_warga);
                 modal.find('.modal-body #nama_provinsi').val(nama_provinsi);
                 modal.find('.modal-body #nama_kabupaten').val(nama_kabupaten);
                 modal.find('.modal-body #nama_kecamatan').val(nama_kecamatan);
@@ -528,7 +537,8 @@
                 modal.find('.modal-body #kode_pos').val(kode_pos);
                 modal.find('.modal-body #agama').val(agama);
                 modal.find('.modal-body #status_perkawinan').val(status_perkawinan);
-                modal.find('.modal-body #NIP').val(NIP);
+                modal.find('.modal-body #kewarganegaraan').val(kewarganegaraan);
+                modal.find('.modal-body #nomor_induk_pegawai').val(nomor_induk_pegawai);
                 modal.find('.modal-body #no_hp').val(no_hp);
                 modal.find('.modal-body #email').val(email);
                 modal.find('.modal-body #role').val(role);
