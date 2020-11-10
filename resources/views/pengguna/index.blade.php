@@ -57,7 +57,10 @@
                     <thead>
                         <tr>
                             <th></th>
+                            <th>Aksi</th>
                             <th>Nama</th>
+                            <th>Jenis Kelamin</th>
+                            <th>Tempat Lahir</th>
                             <th>Tanggal Lahir</th>
                             <th>Alamat</th>
                             <th>Email</th>
@@ -75,7 +78,21 @@
                         @foreach ($data as $data)
                         <tr>
                             <td>{{$d++}}</td>
+                            <td><button type="button" class="mr-1 shadow btn btn-warning btn-xs sharp"
+                                data-toggle="modal"
+                                data-id="{{ $data['id'] }}"
+                                data-nama="{{$data['nama']}}"
+                                data-tgl_lahir="{{$data['tgl_lahir']}}" 
+                                data-alamat="{{$data['alamat']}}"
+                                data-email="{{$data['email']}}"
+                                data-role="{{$data['role']}}"
+                                data-pangkat="{{$data['pangkat']}}"
+                                data-golongan="{{$data['golongan']}}"
+                                data-target="#editModal"><i class="fa fa-pencil"></i></button>
+                            <a href="/pengguna/delete/{{$data['id']}}" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
+                            <a href="#" class="btn btn-info shadow btn-xs sharp"><i class="fa fa-eye"></i></a></td>
                             <td>{{$data['nama']}}</td>
+                            <td>{{$data['jenis_kelamin']}}</td>
                             <td>{{$data['tgl_lahir']}}</td>
                             <td>{{$data['alamat']}}</td>
                             <td>{{$data['email']}}</td>
@@ -84,17 +101,7 @@
                             <td>{{$data['role']}}</td>
                             <td></td>
                             <td>
-                                <button type="button" class="mr-1 shadow btn btn-warning btn-xs sharp"
-                                    data-toggle="modal" data-id="{{ $data['id'] }}"
-                                    data-nama="{{$data['nama']}}"
-                                    data-tgl_lahir="{{$data['tgl_lahir']}}" 
-                                    data-alamat="{{$data['alamat']}}"
-                                    data-email="{{$data['email']}}"
-                                    data-role="{{$data['role']}}"
-                                    data-pangkat="{{$data['pangkat']}}"
-                                    data-golongan="{{$data['golongan']}}"data-target="#editModal"><i class="fa fa-pencil"></i></button>
-                                <a href="/pengguna/delete/{{$data['id']}}" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
-                                <a href="#" class="btn btn-info shadow btn-xs sharp"><i class="fa fa-eye"></i></a>
+                                
                             </td>										
                         </tr> 
                         @endforeach
@@ -209,7 +216,7 @@
                         <label>Kewarganegaraan</label>
                         <input type="text"
                             class="form-control input-rounded @error('kewarganegaraan') is-invalid @enderror"
-                            name="kewarganegaraan" placeholder="kewarganegaraan...">
+                            name="kewarganegaraan" placeholder="Kewarganegaraan...">
                     </div>
                     <div class="form-group">
                         <label>NIP</label>

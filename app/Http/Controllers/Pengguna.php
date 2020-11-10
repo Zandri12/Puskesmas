@@ -66,7 +66,6 @@ class Pengguna extends Controller
             User::create([
                 'nama' => $data['nama'],
                 'jenis_kelamin' => $data['jenis_kelamin'],
-                'jenis_kelamin' => $data['jenis_kelamin'],
                 'tempat_lahir' => $data['tempat_lahir'],
                 'tgl_lahir' => $data['tgl_lahir'],
                 'nama_ibu_kandung' => $data['nama_ibu_kandung'],
