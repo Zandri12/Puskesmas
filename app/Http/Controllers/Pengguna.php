@@ -24,21 +24,10 @@ class Pengguna extends Controller
     {
         $data = User::all();
         $data_induk = Data_induk::all();
-        $provinces = DB::table("indoregion_provinces")->get();
-        
-        $regencies = Regency::all();
-        $districts = District::all();
-        $villages = Village::all();
        
-        return view('Pengguna.index',compact('data','data_induk','provinces','regencies','districts','villages'));
+       
+        return view('Pengguna.index',compact('data','data_induk'));
         
-    }
-    public function GetSubCatAgainstMainCatEdit(Request $request){
-        if($request->has('cat_id')){
-            $parentId = $request->get('cat_id');
-            $data = Category::where('parent_id',$parentId)->get();
-            return ['success'=>true,'data'=>$data];
-        }
     }
 
 
@@ -46,8 +35,24 @@ class Pengguna extends Controller
     {
         $data = $request->validate([
             'nama' => 'max:255',
+            'jenis_kelamin'=>'max:255',
+            'tempat_lahir'=>'max:255',
+            'nama_ibu_kandung'=>'max:255',
             'tgl_lahir'=>'max:255',
             'alamat'=>'max:255',
+            'RT'=>'max:255',
+            'RW'=>'max:255',
+            'nama_provinsi'=>'max:255',
+            'nama_kabupaten'=>'max:255',
+            'nama_kecamatan'=>'max:255',
+            'nama_dusun'=>'max:255',
+            'nama_desa'=>'max:255',
+            'kode_pos'=>'max:255',
+            'agama'=>'max:255',
+            'status_perkawinan'=>'max:255',
+            'kewarganegaraan'=>'max:255',
+            'NIP'=>'max:255',
+            'no_hp'=>'max:255',
             'role'=>'required',
             'pangkat'=> 'max:255',
             'golongan' => 'max:255',
@@ -60,8 +65,25 @@ class Pengguna extends Controller
 
             User::create([
                 'nama' => $data['nama'],
+                'jenis_kelamin' => $data['jenis_kelamin'],
+                'jenis_kelamin' => $data['jenis_kelamin'],
+                'tempat_lahir' => $data['tempat_lahir'],
                 'tgl_lahir' => $data['tgl_lahir'],
+                'nama_ibu_kandung' => $data['nama_ibu_kandung'],
                 'alamat' => $data['alamat'],
+                'RT' => $data['RT'],
+                'RW' => $data['RW'],
+                'nama_provinsi' => $data['nama_provinsi'],
+                'nama_kabupaten' => $data['nama_kabupaten'],
+                'nama_kecamatan' => $data['nama_kecamatan'],
+                'nama_dusun' => $data['nama_dusun'],
+                'nama_desa' => $data['nama_desa'],
+                'kode_pos' => $data['kode_pos'],
+                'agama' => $data['agama'],
+                'status_perkawinan' => $data['status_perkawinan'],
+                'kewarganegaraan' => $data['kewarganegaraan'],
+                'NIP' => $data['NIP'],
+                'no_hp' => $data['no_hp'],
                 'role' => $data['role'],
                 'pangkat' => $data['pangkat'],
                 'golongan' => $data['golongan'],

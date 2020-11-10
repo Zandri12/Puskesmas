@@ -25,8 +25,6 @@
     </button>
 
 </div>
-
-
 @if ($errors->any())
 <div class="alert alert-danger">
     <ul>
@@ -156,35 +154,35 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>RT</label>
-                            <input type="text" name="RT" class="form-control" placeholder="RT....">
+                            <input type="text" name="RT" class="@error('RT') is-invalid @enderror form-control" placeholder="RT....">
                         </div>
                         <div class="form-group col-md-6">
                             <label>RW</label>
-                            <input type="text" name="RW" class="form-control" placeholder="RW....">
+                            <input type="text" name="RW" class="@error('RW') is-invalid @enderror form-control" placeholder="RW....">
                         </div>
                         <div class="form-group col-md-6">
                             <label>Nama Propinsi</label>
-                            <input type="text" name="nama_provinsi" class="form-control" placeholder="Nama Propinsi....">
+                            <input type="text" name="nama_provinsi" class="@error('nama_provinsi') is-invalid @enderror form-control" placeholder="Nama Propinsi....">
                         </div>
                         <div class="form-group col-md-6">
                             <label>Nama Kabupaten</label>
-                            <input type="text" name="nama_kabupaten" class="form-control" placeholder="Nama Kabupaten....">
+                            <input type="text" name="nama_kabupaten" class="@error('nama_kabupaten') is-invalid @enderror form-control" placeholder="Nama Kabupaten....">
                         </div>
                         <div class="form-group col-md-6">
                             <label>Nama Kecamatan</label>
-                            <input type="text" name="nama_kecamatan" class="form-control" placeholder="Nama Kecamatan....">
+                            <input type="text" name="nama_kecamatan" class="@error('nama_kecamatan') is-invalid @enderror form-control" placeholder="Nama Kecamatan....">
                         </div>
                         <div class="form-group col-md-6">
                             <label>Nama Dusun</label>
-                            <input type="text" name="nama_dusun" class="form-control" placeholder="Nama Dusun....">
+                            <input type="text" name="nama_dusun" class="@error('nama_dusun') is-invalid @enderror form-control" placeholder="Nama Dusun....">
                         </div>
                         <div class="form-group col-md-6">
                             <label>Nama Desa/Kelurahan</label>
-                            <input type="text" name="nama_desa" class="form-control" placeholder="Nama Desa/Kelurahan....">
+                            <input type="text" name="nama_desa" class="@error('nama_desa') is-invalid @enderror form-control" placeholder="Nama Desa/Kelurahan....">
                         </div>
                         <div class="form-group col-md-6">
                             <label>Kode Pos</label>
-                            <input type="text" name="kode_pos" class="form-control" placeholder="Kode Pos....">
+                            <input type="text" name="kode_pos" class="@error('kode_pos') is-invalid @enderror form-control" placeholder="Kode Pos....">
                         </div>
                     </div>
                   <div class="form-group">

@@ -27,6 +27,7 @@ class CreateUsersTable extends Migration
             $table->string('nama_desa')->nullable();
             $table->string('nama_kecamatan')->nullable();
             $table->string('nama_kabupaten')->nullable();
+            $table->string('nama_provinsi')->nullable();
             $table->string('kode_pos')->nullable();
             $table->string('agama')->nullable();
             $table->string('status_perkawinan')->nullable();
