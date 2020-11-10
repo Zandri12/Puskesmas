@@ -29,6 +29,11 @@ class Pengguna extends Controller
         return view('Pengguna.index',compact('data','data_induk'));
         
     }
+    public function data_lengkap($id)
+    {
+        $data = User::find($id);
+        return view('Pengguna.tab',compact('data'));  
+    }
 
 
     public function tambah_pengguna(Request $request)
@@ -99,8 +104,24 @@ class Pengguna extends Controller
     {
         DB::table('users')->where('id',$request->id)->update([
             'nama' => $request->nama,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'tempat_lahir' => $request->tempat_lahir,
             'tgl_lahir' => $request->tgl_lahir,
+            'nama_ibu_kandung' => $request->nama_ibu_kandung,
             'alamat' => $request->alamat,
+            'rukun_tetangga' => $request->rukun_tetangga,
+            'rukun_warga' => $request->rukun_warga,
+            'nama_provinsi' => $request->nama_provinsi,
+            'nama_kabupaten' => $request->nama_kabupaten,
+            'nama_kecamatan' => $request->nama_kecamatan,
+            'nama_dusun' => $request->nama_dusun,
+            'nama_desa' => $request->nama_desa,
+            'kode_pos' => $request->kode_pos,
+            'agama' => $request->agama,
+            'status_perkawinan' => $request->status_perkawinan,
+            'kewarganegaraan' => $request->kewarganegaraan,
+            'nomor_induk_pegawai' => $request->nomor_induk_pegawai,
+            'no_hp' => $request->no_hp,
             'email' => $request->email,
             'role' => $request->role,
             'pangkat' => $request->pangkat,

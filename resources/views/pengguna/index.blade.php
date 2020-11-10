@@ -118,7 +118,7 @@
                                 data-golongan="{{$data['golongan']}}"
                                 data-target="#editModal"><i class="fa fa-pencil"></i></button>
                             <a href="/pengguna/delete/{{$data['id']}}" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
-                            <a href="#" class="btn btn-info shadow btn-xs sharp"><i class="fa fa-eye"></i></a></td>
+                            <a href="/pengguna/data_lengkap/{{$data['id']}}" class="btn btn-info shadow btn-xs sharp"><i class="fa fa-eye"></i></a></td>
                             <td>{{$data['nama']}}</td>
                             <td>{{$data['jenis_kelamin']}}</td>
                             <td>{{$data['tempat_lahir']}}</td>
@@ -326,8 +326,10 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="{{route('tambah_pengguna')}}">
+                <form action="{{route('update_pengguna','data')}}" method="POST" enctype="multipart/form-data">
                     @csrf
+                 
+                    <input type="hidden" name="id" id="id">
                     <div class="form-group">
                         <label>Nama Pengguna</label>
                         <input type="text" id="nama"
