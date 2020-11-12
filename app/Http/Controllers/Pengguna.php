@@ -23,7 +23,7 @@ class Pengguna extends Controller
     public function semua_pengguna()
     {
         $data = User::all();
-        $data_induk = Data_induk::all();
+        $data_induk = DB::table('data_induks')->first();
        
        
         return view('Pengguna.index',compact('data','data_induk'));

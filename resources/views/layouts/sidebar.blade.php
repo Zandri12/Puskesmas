@@ -34,7 +34,8 @@
                 <ul aria-expanded="false">
                     <li><a href="{{route('semua_pengguna')}}">Semua Pengguna</a></li>
                     <li><a href="{{route('data_induk')}}">Data Induk</a></li>
-                    
+                    <li><a href="#">Import Data</a></li>
+                    <li><a href="#">Export Data</a></li>
 
                 </ul>
             </li>
@@ -57,8 +58,8 @@
             </a>
             </li>
             <li><a href="widget-basic.html" class="ai-icon" aria-expanded="false">
-                    <i class="flaticon-381-settings-2"></i>
-                    <span class="nav-text">Widget</span>
+                    <i class="flaticon-381-key"></i>
+                    <span class="nav-text">Atur Ulang Sandi</span>
                 </a>
             </li>
         </ul>

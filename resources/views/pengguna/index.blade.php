@@ -293,17 +293,17 @@
                                  
                                 <select name="pangkat" class="" id="pangkat">
                                     <option selected>Pilih Pangkat...</option>
-                                    @foreach ($data_induk as $data_induk)
-                                    <option value="{{$data_induk['pangkat']}}">{{$data_induk['pangkat']}}</option> 
-                                    @endforeach
+                                    
+                                    <option value="{{$data_induk->pangkat}}">{{$data_induk->pangkat}}</option> 
+                                   
                                 </select>
                             </div>
                             <div class="col-sm-6 mt-2 mt-sm-0">
                                 <select name="golongan" class="" id="golongan">
                                     <option selected>Pilih Golongan...</option>
-                                    @foreach ($data_induk as $data_induk)
-                                    <option value="{{$data_induk['golongan']}}">{{$data_induk['golongan']}}</option>
-                                    @endforeach
+                                    
+                                    <option value="{{$data_induk->golongan}}">{{$data_induk->golongan}}</option>
+                                   
                                 </select>
                             </div>
                         </div>
@@ -467,17 +467,17 @@
                                  
                                 <select name="pangkat" class="" id="pangkat">
                                     <option selected>Pilih Pangkat...</option>
-                                    @foreach ($data_induk as $data_induk)
-                                    <option value="{{$data_induk['pangkat']}}">{{$data_induk['pangkat']}}</option> 
-                                    @endforeach
+                                    
+                                    <option value="{{$data_induk->pangkat}}">{{$data_induk->pangkat}}</option> 
+                                   
                                 </select>
                             </div>
                             <div class="col-sm-6 mt-2 mt-sm-0">
                                 <select name="golongan" class="" id="golongan">
                                     <option selected>Pilih Golongan...</option>
-                                    @foreach ($data_induk as $data_induk)
-                                    <option value="{{$data_induk['golongan']}}">{{$data_induk['golongan']}}</option>
-                                    @endforeach
+                                    
+                                    <option value="{{$data_induk->golongan}}">{{$data_induk->golongan}}</option>
+                                   
                                 </select>
                             </div>
                         </div>
