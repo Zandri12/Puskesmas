@@ -42,10 +42,11 @@ class CreateUsersTable extends Migration
             $table->string('jurusan_slta')->nullable();
             $table->string('tanggal_tamat_slta')->nullable();
             $table->string('universitas')->nullable();
+            $table->string('jurusan_universitas')->nullable();
+            $table->string('tanggal_tamat_universitas')->nullable();
             $table->string('pangkat')->nullable();
             $table->string('golongan')->nullable();
             $table->string('no_hp')->nullable();
-            $table->string('role')->nullable();
             $table->string('role')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
