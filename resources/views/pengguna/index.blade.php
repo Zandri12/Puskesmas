@@ -68,19 +68,7 @@
                             <th>RW</th>
                             <th>Nama Provinsi</th>
                             <th>Nama Kabupaten</th>
-                            <th>Nama Kecamatan</th>
-                            <th>Nama Dusun</th>
-                            <th>Nama Desa</th>
-                            <th>Kode Pos</th>
-                            <th>Kewarganegaraan</th>
-                            <th>Email</th>
-                            <th>NIP</th>
-                            <th>Pangkat</th>
-                            <th>Golongan</th>
-                            <th>No.HP</th>
-                            <th>Hak Akses</th>
-                            <th>Status</th>
-                            <th>Aksi</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
@@ -129,19 +117,7 @@
                             <td>{{$data['rukun_warga']}}</td>
                             <td>{{$data['nama_provinsi']}}</td>
                             <td>{{$data['nama_kabupaten']}}</td>
-                            <td>{{$data['nama_kecamatan']}}</td>
-                            <td>{{$data['nama_dusun']}}</td>
-                            <td>{{$data['nama_desa']}}</td>
-                            <td>{{$data['kode_pos']}}</td>
-                            <td>{{$data['kewarganegaraan']}}</td>
-                            <td>{{$data['email']}}</td>
-                            <td>{{$data['nomor_induk_pegawai']}}</td>
-                            <td>{{$data['pangkat']}}</td>
-                            <td>{{$data['golongan']}}</td>
-                            <td>{{$data['no_hp']}}</td>
-                            <td>{{$data['role']}}</td>
-                            <td></td>
-                            <td>
+                            
                                 
                             </td>										
                         </tr> 

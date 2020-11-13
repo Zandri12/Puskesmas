@@ -24,7 +24,7 @@
 	<link rel="stylesheet" href="{{ asset ('template/vendor/chartist/css/chartist.min.css')}}">
     <link href="{{ asset ('template/vendor/bootstrap-select/dist/css/bootstrap-select.min.css')}}" rel="stylesheet">
     <link href="{{ asset ('template/css/style.css')}}" rel="stylesheet">
-    <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="{{ asset ('template/ajax/jquery-3.4.1.js')}}"></script>
 
 
 	 <!-- Datatable -->

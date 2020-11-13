@@ -33,6 +33,15 @@ class CreateUsersTable extends Migration
             $table->string('status_perkawinan')->nullable();
             $table->string('kewarganegaraan')->nullable();
             $table->string('nomor_induk_pegawai')->nullable();
+            $table->string('nomor_sk')->nullable();
+            $table->string('tanggal')->nullable();
+            $table->string('mengangkat')->nullable();
+            $table->string('tmt_jabatan')->nullable();
+            $table->string('diklat_kepemimpinan')->nullable();
+            $table->string('asal_slta')->nullable();
+            $table->string('jurusan_slta')->nullable();
+            $table->string('tanggal_tamat_slta')->nullable();
+            $table->string('universitas')->nullable();
             $table->string('pangkat')->nullable();
             $table->string('golongan')->nullable();
             $table->string('no_hp')->nullable();
