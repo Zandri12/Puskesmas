@@ -252,10 +252,40 @@
                     <hr>
                     <label> SLTA</label>
                     <div class="form-group">
-                        <label>Asal ST</label>
+                        <label>Asal SLTA</label>
                         <input type="text"
-                            class="form-control input-rounded @error('no_hp') is-invalid @enderror"
-                            name="no_hp" placeholder="No Hp Pengguna...">
+                            class="form-control input-rounded @error('asal_slta') is-invalid @enderror"
+                            name="asal_slta" placeholder="Asal SLTA....">
+                    </div>
+                    <div class="form-group">
+                        <label>Jurusan SLTA</label>
+                        <input type="text"
+                            class="form-control input-rounded @error('jurusan_slta') is-invalid @enderror"
+                            name="jurusan_slta" placeholder="Jurusan SLTA....">
+                    </div>
+                    <div class="form-group">
+                        <label>Tanggal Tamat SLTA</label>
+                        <input type="date"
+                            class="form-control input-rounded @error('tanggal_tamat_slta') is-invalid @enderror"
+                            name="tanggal_tamat_slta" >
+                    </div>
+                    <div class="form-group">
+                        <label>Asal Universitas</label>
+                        <input type="text"
+                            class="form-control input-rounded @error('universitas') is-invalid @enderror"
+                            name="universitas" placeholder="Asal Universitas....">
+                    </div>
+                    <div class="form-group">
+                        <label>Jurusan Universitas</label>
+                        <input type="text"
+                            class="form-control input-rounded @error('jurusan_universitas') is-invalid @enderror"
+                            name="jurusan_universitas" placeholder="Jurusan Universitas....">
+                    </div>
+                    <div class="form-group">
+                        <label>Tanggal Tamat Universitas</label>
+                        <input type="date"
+                            class="form-control input-rounded @error('tanggal_tamat_universitas') is-invalid @enderror"
+                            name="tanggal_tamat_universitas" >
                     </div>
                     <div class="form-group">
                         <label>No Hp</label>
