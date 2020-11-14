@@ -242,6 +242,22 @@
                             name="nomor_induk_pegawai" placeholder="NIP Pengguna...">
                     </div>
                     <div class="form-group">
+                        <label>Nomor SK</label>
+                        <input type="email"
+                            class="form-control input-rounded @error('no_sk') is-invalid @enderror"
+                            name="no_sk" placeholder="Nomor SK Pengguna...">
+                    </div>
+                    <hr>
+                    <label> Pendidikan</label>
+                    <hr>
+                    <label> SLTA</label>
+                    <div class="form-group">
+                        <label>Asal ST</label>
+                        <input type="text"
+                            class="form-control input-rounded @error('no_hp') is-invalid @enderror"
+                            name="no_hp" placeholder="No Hp Pengguna...">
+                    </div>
+                    <div class="form-group">
                         <label>No Hp</label>
                         <input type="text"
                             class="form-control input-rounded @error('no_hp') is-invalid @enderror"
@@ -262,7 +278,6 @@
                             <label class="radio-inline mr-3"><input type="radio" name="role" value="3"> Operator</label>
                         </div>
                     </div>
-                   
                     
                 @foreach ($data_induk as $data_induk)
                 <div class="form-group">
