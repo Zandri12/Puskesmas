@@ -57,7 +57,7 @@
                 <span class="nav-text">Pustu</span>
             </a>
             </li>
-            <li><a href="widget-basic.html" class="ai-icon" aria-expanded="false">
+            <li><a href="{{route('ganti_sandi_index')}}" class="ai-icon" aria-expanded="false">
                     <i class="flaticon-381-key"></i>
                     <span class="nav-text">Atur Ulang Sandi</span>
                 </a>

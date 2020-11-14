@@ -262,50 +262,30 @@
                             <label class="radio-inline mr-3"><input type="radio" name="role" value="3"> Operator</label>
                         </div>
                     </div>
-                    {{-- @if ($data_induk['pangkat'] != null && $data_induk['golongan'] != null )
-                    <div class="form-group">
-                        <label>Data Induk</label>
-                      <div class="row">
-                          <div class="col-sm-6"> 
-                               
-                              <select name="pangkat" class="" id="pangkat">
-                                  <option selected>Pilih Pangkat...</option>
-                                  
-                                  <option value="{{$data_induk->pangkat}}">{{$data_induk->pangkat}}</option> 
-                                 
-                              </select>
-                          </div>
-                          <div class="col-sm-6 mt-2 mt-sm-0">
-                              <select name="golongan" class="" id="golongan">
-                                  <option selected>Pilih Golongan...</option>
-                                  
-                                  <option value="{{$data_induk->golongan}}">{{$data_induk->golongan}}</option>
-                                 
-                              </select>
-                          </div>
-                      </div>
-                  </div>
-                @endif --}}
-                @if ($data_induk['pangkat'] == null && $data_induk['golongan'] == null)
+                   
+                    
+                @foreach ($data_induk as $data_induk)
                 <div class="form-group">
                     <label>Data Induk</label>
-                  <div class="row">
+                <div class="row">
                       <div class="col-sm-6"> 
-                           
-                          <select name="pangkat" class="" id="pangkat">
-                              <option selected>Pilih Pangkat...</option>
-                              <option value="">Pangkat Kosong..</option>
-                          </select>
+                         <select name="pangkat" class="" id="pangkat">
+                            <option selected>Pilih Pangkat...</option>
+                         <option value="{{$data_induk['pangkat']}}">{{$data_induk['pangkat']}}</option>
+                        </select> 
+                         
+                          
                       </div>
                       <div class="col-sm-6 mt-2 mt-sm-0">
                           <select name="golongan" class="" id="golongan">
                               <option selected>Pilih Golongan...</option>
-                              <option value="">Pangkat Kosong..</option>
+                              <option value="{{$data_induk['golongan']}}">{{$data_induk['golongan']}}</option>
                           </select>
-                      </div>
+                        </div>
                   </div>
               </div>
-            @endif
+              @endforeach  
+           
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary">Simpan Data</button>
@@ -482,7 +462,7 @@
                       </div>
                   </div>
                 @endif --}}
-                @if ($data_induk['pangkat'] == null && $data_induk['golongan'] == null)
+                {{-- @if ($data_induk['pangkat'] == null && $data_induk['golongan'] == null)
                 <div class="form-group">
                     <label>Data Induk</label>
                   <div class="row">
@@ -501,7 +481,7 @@
                       </div>
                   </div>
               </div>
-            @endif
+            @endif --}}
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary">Simpan Data</button>

@@ -24,10 +24,10 @@ class Pengguna extends Controller
     {
         $data = User::all();
         $data_induk = Data_induk::all();
-        $DI = Data_induk::all();
        
        
-        return view('Pengguna.index',compact('data','data_induk','DI'));
+       
+        return view('Pengguna.index',compact('data','data_induk'));
         
     }
     public function data_lengkap($id)
