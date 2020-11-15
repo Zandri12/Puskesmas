@@ -144,9 +144,7 @@ class Pengguna extends Controller
 
     public function update_pengguna(Request $request,$id)
     {
-        if($request->file('image') == '') {
-            $gambar = NULL;
-        } else {
+        
             $file = $request->file('image');
             $dt = Carbon::now();
             $acak  = $file->getClientOriginalExtension();
@@ -154,7 +152,7 @@ class Pengguna extends Controller
             $request->file('image')->move("images/user", $fileName);
             $gambar = $fileName;
         
-        }
+        
         DB::table('users')->where('id',$request->id)->update([
             'nama' => $request->nama,
             'jenis_kelamin' => $request->jenis_kelamin,
