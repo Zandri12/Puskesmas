@@ -18,7 +18,7 @@
 	@endif
     
     <!-- Favicon icon -->
-	<link rel="icon" type="image/png" sizes="16x16" href="{{ asset ('template/images/favicon.png')}}">
+	<link rel="icon" type="image/png" sizes="16x16" href="{{ asset ('template/images/logos.p')}}">
 	<link rel="stylesheet" href="{{ asset ('template/vendor/toastr/css/toastr.min.css')}}">
     <link href="{{ asset ('template/vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet')}}">
 	<link rel="stylesheet" href="{{ asset ('template/vendor/chartist/css/chartist.min.css')}}">

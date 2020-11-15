@@ -243,10 +243,35 @@
                     </div>
                     <div class="form-group">
                         <label>Nomor SK</label>
-                        <input type="email"
-                            class="form-control input-rounded @error('no_sk') is-invalid @enderror"
-                            name="no_sk" placeholder="Nomor SK Pengguna...">
+                        <input type="text"
+                            class="form-control input-rounded @error('nomor_sk') is-invalid @enderror"
+                            name="nomor_sk" placeholder="Nomor SK Pengguna...">
                     </div>
+                    <div class="form-group">
+                        <label>Tanggal</label>
+                        <input type="date"
+                            class="form-control input-rounded @error('tanggal') is-invalid @enderror"
+                            name="tanggal" placeholder="Tanggal...">
+                    </div>
+                    <div class="form-group">
+                        <label>Mengangkat</label>
+                        <input type="text"
+                            class="form-control input-rounded @error('mengangkat') is-invalid @enderror"
+                            name="mengangkat" placeholder="Mengangkat...">
+                    </div>
+                    <div class="form-group">
+                        <label>TMT Jabatan</label>
+                        <input type="date"
+                            class="form-control input-rounded @error('tmt_jabatan') is-invalid @enderror"
+                            name="tmt_jabatan" placeholder="TMT Jabatan...">
+                    </div>
+                    <div class="form-group">
+                        <label>Diklat Kepemimpinan</label>
+                        <input type="text"
+                            class="form-control input-rounded @error('diklat_kepemimpinan') is-invalid @enderror"
+                            name="diklat_kepemimpinan" placeholder="Diklat Kepemimpinan...">
+                    </div>
+
                     <hr>
                     <label> Pendidikan</label>
                     <hr>
