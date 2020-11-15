@@ -34,24 +34,28 @@
                 <ul aria-expanded="false">
                     <li><a href="{{route('semua_pengguna')}}">Semua Pengguna</a></li>
                     <li><a href="{{route('data_induk')}}">Data Induk</a></li>
-                    <li><a href="#">Import Data</a></li>
-                    <li><a href="#">Export Data</a></li>
+                    <li><a href="#">Impor Data</a></li>
+                    <li><a href="#">Ekspor Data</a></li>
 
                 </ul>
             </li>
+            <li><a class="flaticon-381-lock-2" href="#" data-target="#info" data-toggle="modal" aria-expanded="false">
+                <i  class="flaticon-381-user-9"></i>
+                <span class="nav-text">Data Pasien</span>
+            </a>
+            </li>
             <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                    <i class="flaticon-381-heart"></i>
-                    <span class="nav-text">Laporan Posyandu</span>
+                    <i class="flaticon-381-notebook-3"></i>
+                    <span class="nav-text">Laporan</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="uc-select2.html">Select 2</a></li>
-                    <li><a href="uc-nestable.html">Nestedable</a></li>
-                    <li><a href="uc-noui-slider.html">Noui Slider</a></li>
-                    <li><a href="uc-sweetalert.html">Sweet Alert</a></li>
-                    <li><a href="uc-toastr.html">Toastr</a></li>
-                    <li><a href="map-jqvmap.html">Jqv Map</a></li>
+                    <li><a href="uc-select2.html">Kategori Laporan</a></li>
+                    <li><a href="uc-nestable.html">Semua Laporan</a></li>
+                    <li><a href="uc-noui-slider.html">Impor Data</a></li>
+                    <li><a href="uc-sweetalert.html">Ekspor Data</a></li>
                 </ul>
             </li>
+          
             <li><a class="flaticon-381-lock-2" href="#" data-target="#info" data-toggle="modal" aria-expanded="false">
                 <i class="flaticon-381-file-2"></i>
                 <span class="nav-text">Pustu</span>
