@@ -118,6 +118,7 @@
                                 data-role="{{$data['role']}}"
                                 data-pangkat="{{$data['pangkat']}}"
                                 data-golongan="{{$data['golongan']}}"
+                                data-image="{{$data['image']}}"
                                 data-target="#editModal"><i class="fa fa-pencil"></i></button>
                             <a href="/pengguna/delete/{{$data['id']}}" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
                             <td> <a href="/pengguna/data_lengkap/{{$data['id']}}" class="btn btn-info shadow btn-xs sharp"><i class="fa fa-eye"></i></a></td></td>
@@ -152,7 +153,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="{{route('tambah_pengguna')}}">
+                <form method="POST" action="{{route('tambah_pengguna')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label>Nama Pengguna</label>
@@ -400,8 +401,11 @@
                   @endforelse  
                 
               </div>
-              
-           
+            </div>
+            <div class="form-group">
+                <input type="file"
+                    class="form-control input-rounded @error('image') is-invalid @enderror"
+                    name="image" placeholder="No Hp Pengguna...">
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary">Simpan Data</button>
@@ -670,9 +674,15 @@
                          </select>
                        </div>
                     </div>
+                    
                       @endforelse  
                     
                   </div>
+                  <div class="form-group">
+                    <input type="file" id=""
+                        class="form-control input-rounded @error('image') is-invalid @enderror"
+                        name="image" placeholder="No Hp Pengguna...">
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary">Simpan Data</button>
@@ -724,6 +734,7 @@
                 var role = button.data('role')
                 var pangkat = button.data('pangkat')
                 var golongan = button.data('golongan')
+                var image = button.data('image')
                 var modal = $(this)
 
                 modal.find('.modal-body #id').val(id);
@@ -763,6 +774,7 @@
                 modal.find('.modal-body #role').val(role);
                 modal.find('.modal-body #pangkat').val(pangkat);
                 modal.find('.modal-body #golongan').val(golongan);
+                modal.find('.modal-body #image').val(image);
             })
         })
 </script>

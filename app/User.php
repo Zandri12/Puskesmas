@@ -22,7 +22,7 @@ class User extends Authenticatable
         'kode_pos','agama','status_perkawinan','kewarganegaraan','nomor_induk_pegawai','nomor_sk',
         'no_hp','tanggal','mengangkat','tmt_jabatan','tmt_sk_pangkat','jabatan','diklat_kepemimpinan','asal_slta','jurusan_slta',
         'tanggal_tamat_slta','universitas','jurusan_universitas','tanggal_tamat_universitas','pangkat',
-        'golongan'
+        'golongan','image'
     ];
 
     /**

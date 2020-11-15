@@ -26,7 +26,7 @@
             <div class="card-body">
                 <div class="basic-list-group">
                     <ul class="list-group">
-                       <img src="" alt="">
+                       <img src="{{url('images/user',$data->image)}}" width="100%" height="130%" alt="">
                     </ul>
                 </div>
             </div>

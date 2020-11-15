@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Data_induk;
 use DB;
+use Carbon\Carbon;
 use App\Models\Province;
 use App\Models\Regency;
 use App\Models\District;
@@ -76,9 +77,20 @@ class Pengguna extends Controller
             'role'=>'required',
             'pangkat'=>'max:255',
             'golongan' => 'max:255',
+            'image'=> 'max:255',
             'email' => 'required|unique:users',
             
         ]);
+        if($request->file('image') == '') {
+            $gambar = NULL;
+        } else {
+            $file = $request->file('image');
+            $dt = Carbon::now();
+            $acak  = $file->getClientOriginalExtension();
+            $fileName = rand(11111,99999).'-'.$dt->format('Y-m-d-H-i-s').'.'.$acak; 
+            $request->file('image')->move("images/user", $fileName);
+            $gambar = $fileName;
+        
         
         
         if ($data) {
@@ -120,16 +132,29 @@ class Pengguna extends Controller
                 'pangkat' => $data['pangkat'],
                 'golongan' => $data['golongan'],
                 'email' => $data['email'],
+                'image' => $gambar,
                 $password = '12312312',
                 'password' => Hash::make($password)
                
             ]);
+        }
             return redirect('/pengguna')->with(['success' => 'Data Berhasil Disimpan!!']);
         }
     }
 
     public function update_pengguna(Request $request,$id)
     {
+        if($request->file('image') == '') {
+            $gambar = NULL;
+        } else {
+            $file = $request->file('image');
+            $dt = Carbon::now();
+            $acak  = $file->getClientOriginalExtension();
+            $fileName = rand(11111,99999).'-'.$dt->format('Y-m-d-H-i-s').'.'.$acak; 
+            $request->file('image')->move("images/user", $fileName);
+            $gambar = $fileName;
+        
+        }
         DB::table('users')->where('id',$request->id)->update([
             'nama' => $request->nama,
             'jenis_kelamin' => $request->jenis_kelamin,
@@ -166,6 +191,7 @@ class Pengguna extends Controller
             'email' => $request->email,
             'role' => $request->role,
             'pangkat' => $request->pangkat,
+            'image' => $gambar,
             'golongan' => $request->golongan
 
            
