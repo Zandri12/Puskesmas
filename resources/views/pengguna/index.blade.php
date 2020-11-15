@@ -99,6 +99,17 @@
                                 data-status_perkawinan="{{ $data['status_perkawinan'] }}" 
                                 data-kewarganegaraan="{{ $data['kewarganegaraan'] }}"
                                 data-nomor_induk_pegawai="{{ $data['nomor_induk_pegawai'] }}"
+                                data-nomor_sk="{{ $data['nomor_sk'] }}"
+                                data-tanggal="{{ $data['tanggal'] }}"
+                                data-mengangkat="{{ $data['mengangkat'] }}"
+                                data-tmt_jabatan="{{ $data['tmt_jabatan'] }}"
+                                data-diklat_kepemimpinan="{{ $data['diklat_kepemimpinan'] }}"
+                                data-asal_slta="{{ $data['asal_slta'] }}"
+                                data-jurusan_slta="{{ $data['jurusan_slta'] }}"
+                                data-tanggal_tamat_slta="{{ $data['tanggal_tamat_slta'] }}"
+                                data-universitas="{{ $data['universitas'] }}"
+                                data-jurusan_universitas="{{ $data['jurusan_universitas'] }}"
+                                data-tanggal_tamat_universitas="{{ $data['tanggal_tamat_universitas'] }}"
                                 data-no_hp="{{ $data['no_hp'] }}"
                                 data-email="{{$data['email']}}"
                                 data-role="{{$data['role']}}"
@@ -312,6 +323,7 @@
                             class="form-control input-rounded @error('tanggal_tamat_universitas') is-invalid @enderror"
                             name="tanggal_tamat_universitas" >
                     </div>
+                  
                     <div class="form-group">
                         <label>No Hp</label>
                         <input type="text"
@@ -339,7 +351,7 @@
                     <label>Data Induk</label>
                 <div class="row">
                       <div class="col-sm-6"> 
-                         <select name="pangkat" class="" id="pangkat">
+                         <select name="pangkat" class="">
                             <option selected>Pilih Pangkat...</option>
                          <option value="{{$data_induk['pangkat']}}">{{$data_induk['pangkat']}}</option>
                         </select> 
@@ -347,7 +359,7 @@
                           
                       </div>
                       <div class="col-sm-6 mt-2 mt-sm-0">
-                          <select name="golongan" class="" id="golongan">
+                          <select name="golongan" class="">
                               <option selected>Pilih Golongan...</option>
                               <option value="{{$data_induk['golongan']}}">{{$data_induk['golongan']}}</option>
                           </select>
@@ -484,6 +496,75 @@
                             name="nomor_induk_pegawai" placeholder="NIP Pengguna...">
                     </div>
                     <div class="form-group">
+                        <label>Nomor SK</label>
+                        <input type="text" id="nomor_sk"
+                            class="form-control input-rounded @error('nomor_sk') is-invalid @enderror"
+                            name="nomor_sk" placeholder="Nomor SK Pengguna...">
+                    </div>
+                    <div class="form-group">
+                        <label>Tanggal</label>
+                        <input type="date" id="tanggal"
+                            class="form-control input-rounded @error('tanggal') is-invalid @enderror"
+                            name="tanggal" placeholder="Tanggal...">
+                    </div>
+                    <div class="form-group">
+                        <label>Mengangkat</label>
+                        <input type="text" id="mengangkat"
+                            class="form-control input-rounded @error('mengangkat') is-invalid @enderror"
+                            name="mengangkat" placeholder="Mengangkat...">
+                    </div>
+                    <div class="form-group">
+                        <label>TMT Jabatan</label>
+                        <input type="date" id="tmt_jabatan"
+                            class="form-control input-rounded @error('tmt_jabatan') is-invalid @enderror"
+                            name="tmt_jabatan" placeholder="TMT Jabatan...">
+                    </div>
+                    <div class="form-group">
+                        <label>Diklat Kepemimpinan</label>
+                        <input type="text" id="diklat_kepemimpinan"
+                            class="form-control input-rounded @error('diklat_kepemimpinan') is-invalid @enderror"
+                            name="diklat_kepemimpinan" placeholder="Diklat Kepemimpinan...">
+                    </div>
+                    <label> Pendidikan</label>
+                    <hr>
+                    <label> SLTA</label>
+                    <div class="form-group">
+                        <label>Asal SLTA</label>
+                        <input type="text"
+                            class="form-control input-rounded @error('asal_slta') is-invalid @enderror"
+                            name="asal_slta" id="asal_slta" placeholder="Asal SLTA....">
+                    </div>
+                    <div class="form-group">
+                        <label>Jurusan SLTA</label>
+                        <input type="text"
+                            class="form-control input-rounded @error('jurusan_slta') is-invalid @enderror"
+                            name="jurusan_slta" id="jurusan_slta" placeholder="Jurusan SLTA....">
+                    </div>
+                    <div class="form-group">
+                        <label>Tanggal Tamat SLTA</label>
+                        <input type="date"
+                            class="form-control input-rounded @error('tanggal_tamat_slta') is-invalid @enderror"
+                            name="tanggal_tamat_slta" id="tanggal_tamat_slta" >
+                    </div>
+                    <div class="form-group">
+                        <label>Asal Universitas</label>
+                        <input type="text"
+                            class="form-control input-rounded @error('universitas') is-invalid @enderror"
+                            name="universitas" id="universitas" placeholder="Asal Universitas....">
+                    </div>
+                    <div class="form-group">
+                        <label>Jurusan Universitas</label>
+                        <input type="text"
+                            class="form-control input-rounded @error('jurusan_universitas') is-invalid @enderror"
+                            name="jurusan_universitas" id="jurusan_universitas" placeholder="Jurusan Universitas....">
+                    </div>
+                    <div class="form-group">
+                        <label>Tanggal Tamat Universitas</label>
+                        <input type="date"
+                            class="form-control input-rounded @error('tanggal_tamat_universitas') is-invalid @enderror"
+                            name="tanggal_tamat_universitas" id="tanggal_tamat_universitas" >
+                    </div>
+                    <div class="form-group">
                         <label>No Hp</label>
                         <input type="text" id="no_hp"
                             class="form-control input-rounded @error('no_hp') is-invalid @enderror"
@@ -508,50 +589,27 @@
                             </select>
                         </div>
                     </div>
-                    {{-- @if ($data_induk['pangkat'] != null && $data_induk['golongan'] != null )
-                    <div class="form-group">
-                        <label>Data Induk</label>
-                      <div class="row">
-                          <div class="col-sm-6"> 
-                               
-                              <select name="pangkat" class="" id="pangkat">
-                                  <option selected>Pilih Pangkat...</option>
-                                  
-                                  <option value="{{$data_induk->pangkat}}">{{$data_induk->pangkat}}</option> 
-                                 
-                              </select>
-                          </div>
-                          <div class="col-sm-6 mt-2 mt-sm-0">
-                              <select name="golongan" class="" id="golongan">
-                                  <option selected>Pilih Golongan...</option>
-                                  
-                                  <option value="{{$data_induk->golongan}}">{{$data_induk->golongan}}</option>
-                                 
-                              </select>
-                          </div>
-                      </div>
-                  </div>
-                @endif --}}
-                {{-- @if ($data_induk['pangkat'] == null && $data_induk['golongan'] == null)
+                    @foreach ($data_induk2 as $data_induk2)
                 <div class="form-group">
                     <label>Data Induk</label>
-                  <div class="row">
+                <div class="row">
                       <div class="col-sm-6"> 
-                           
-                          <select name="pangkat" class="" id="pangkat">
-                              <option selected>Pilih Pangkat...</option>
-                              <option value="">Pangkat Kosong..</option>
-                          </select>
+                         <select name="pangkat" class="" id="pangkat">
+                            <option selected>Pilih Pangkat...</option>
+                         <option value="{{$data_induk2['pangkat']}}">{{$data_induk2['pangkat']}}</option>
+                        </select> 
+                         
+                          
                       </div>
                       <div class="col-sm-6 mt-2 mt-sm-0">
                           <select name="golongan" class="" id="golongan">
                               <option selected>Pilih Golongan...</option>
-                              <option value="">Pangkat Kosong..</option>
+                              <option value="{{$data_induk2['golongan']}}">{{$data_induk2['golongan']}}</option>
                           </select>
-                      </div>
+                        </div>
                   </div>
               </div>
-            @endif --}}
+              @endforeach  
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary">Simpan Data</button>
@@ -585,6 +643,17 @@
                 var status_perkawinan = button.data('status_perkawinan')
                 var kewarganegaraan = button.data('kewarganegaraan')
                 var nomor_induk_pegawai = button.data('nomor_induk_pegawai')
+                var nomor_sk = button.data('nomor_sk')
+                var tanggal = button.data('tanggal')
+                var mengangkat = button.data('mengangkat')
+                var tmt_jabatan = button.data('tmt_jabatan')
+                var diklat_kepemimpinan = button.data('diklat_kepemimpinan')
+                var asal_slta = button.data('asal_slta')
+                var jurusan_slta = button.data('jurusan_slta')
+                var tanggal_tamat_slta = button.data('tanggal_tamat_slta')
+                var universitas = button.data('universitas')
+                var jurusan_universitas = button.data('jurusan_universitas')
+                var tanggal_tamat_universitas = button.data('tanggal_tamat_universitas')
                 var no_hp = button.data('no_hp')
                 var email = button.data('email')
                 var role = button.data('role')
@@ -611,6 +680,17 @@
                 modal.find('.modal-body #status_perkawinan').val(status_perkawinan);
                 modal.find('.modal-body #kewarganegaraan').val(kewarganegaraan);
                 modal.find('.modal-body #nomor_induk_pegawai').val(nomor_induk_pegawai);
+                modal.find('.modal-body #nomor_sk').val(nomor_sk);
+                modal.find('.modal-body #tanggal').val(tanggal);
+                modal.find('.modal-body #mengangkat').val(mengangkat);
+                modal.find('.modal-body #tmt_jabatan').val(tmt_jabatan);
+                modal.find('.modal-body #diklat_kepemimpinan').val(diklat_kepemimpinan);
+                modal.find('.modal-body #asal_slta').val(asal_slta);
+                modal.find('.modal-body #jurusan_slta').val(jurusan_slta);
+                modal.find('.modal-body #tanggal_tamat_slta').val(tanggal_tamat_slta);
+                modal.find('.modal-body #universitas').val(universitas);
+                modal.find('.modal-body #jurusan_universitas').val(jurusan_universitas);
+                modal.find('.modal-body #tanggal_tamat_universitas').val(tanggal_tamat_universitas);
                 modal.find('.modal-body #no_hp').val(no_hp);
                 modal.find('.modal-body #email').val(email);
                 modal.find('.modal-body #role').val(role);

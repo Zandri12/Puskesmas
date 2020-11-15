@@ -24,10 +24,11 @@ class Pengguna extends Controller
     {
         $data = User::all();
         $data_induk = Data_induk::all();
+        $data_induk2 = Data_induk::all();
        
        
        
-        return view('Pengguna.index',compact('data','data_induk'));
+        return view('Pengguna.index',compact('data','data_induk','data_induk2'));
         
     }
     public function data_lengkap($id)
@@ -144,6 +145,17 @@ class Pengguna extends Controller
             'status_perkawinan' => $request->status_perkawinan,
             'kewarganegaraan' => $request->kewarganegaraan,
             'nomor_induk_pegawai' => $request->nomor_induk_pegawai,
+            'nomor_sk' => $request->nomor_sk,
+            'tanggal' => $request->tanggal,
+            'mengangkat' => $request->mengangkat,
+            'tmt_jabatan' => $request->tmt_jabatan,
+            'diklat_kepemimpinan' => $request->diklat_kepemimpinan,
+            'asal_slta' => $request->asal_slta,
+            'jurusan_slta' => $request->jurusan_slta,
+            'tanggal_tamat_slta' => $request->tanggal_tamat_slta,
+            'universitas' => $request->universitas,
+            'jurusan_universitas' => $request->jurusan_universitas,
+            'tanggal_tamat_universitas' => $request->tanggal_tamat_universitas,
             'no_hp' => $request->no_hp,
             'email' => $request->email,
             'role' => $request->role,

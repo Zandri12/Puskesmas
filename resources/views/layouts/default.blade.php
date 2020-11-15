@@ -18,7 +18,7 @@
 	@endif
     
     <!-- Favicon icon -->
-	<link rel="icon" type="image/png" sizes="16x16" href="{{ asset ('template/images/logos.p')}}">
+	<link rel="icon"  sizes="16x16" href="{{ asset ('template/images/puskesmass.png')}}">
 	<link rel="stylesheet" href="{{ asset ('template/vendor/toastr/css/toastr.min.css')}}">
     <link href="{{ asset ('template/vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet')}}">
 	<link rel="stylesheet" href="{{ asset ('template/vendor/chartist/css/chartist.min.css')}}">
@@ -58,13 +58,12 @@
             Nav header start
         ***********************************-->
         <div class="nav-header">
-            <a href="index.html" class="brand-logo">
-                {{-- <img class="logo-abbr" src="{{ asset ('template/images/logo.png')}}" alt="">
-                <img class="logo-compact" src="{{ asset ('template/images/logo-text.png')}}" alt="">
+            <a href="/home" class="brand-logo">
+                <img class="logo-abbr" src="{{ asset ('template/images/puskesmass.png')}}" alt="">
+                {{-- <img class="logo-compact" src="{{ asset ('template/images/logo-text.png')}}" alt="">
 				<img class="brand-title" src="{{ asset ('template/images/logo-text.png')}}" alt=""> --}}
-				<h1 class="logo-abbr">A</h1>
-				<h2 class="logo-compact">dministrator</h2>
-				<h2 class="brand-title">dministrator</h2>
+				<h2 class="logo-compact">Administrator</h2>
+				<h2 class="brand-title">Administrator</h2>
 				
             </a>
 
