@@ -48,9 +48,8 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th aria-readonly="false"><a href="#" class="mr-1 shadow btn btn-warning btn-xs sharp"><i
-                                        class="fa fa-pencil"></i></a>
-                                <a href="#" class="shadow btn btn-danger btn-xs sharp"><i class="fa fa-trash"></i></a>
+                            <th>
+                                Aksi
                             </th>
                             <th>Nama Pengaturan</th>
                             <th>Data pengaturan</th>

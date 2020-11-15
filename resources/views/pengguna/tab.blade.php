@@ -20,8 +20,7 @@
 @section('content')
 
 <div class="row">
-    <div class="col-sm
-    -4">
+    <div class="col-sm-4">
         <div class="card">
           
             <div class="card-body">
@@ -70,12 +69,21 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#pangkat">
+                            <span>
+                                <i class="fa fa-star"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" data-toggle="tab" href="#contact8">
                             <span>
                                 <i class="fa fa-phone"></i>
                             </span>
                         </a>
                     </li>
+                </li>
+                
                 </ul>
                 <!-- Tab panes -->
                 <div class="tab-content tabcontent-border">
@@ -177,6 +185,7 @@
                             </table>
                         </div>
                     </div>
+                   
                     <div class="tab-pane fade" id="employee8" role="tabpanel">
                         <div class="pt-4">
                             <h4>Kepegawaian</h4>
@@ -193,9 +202,38 @@
                                         <td> {{$data->status_perkawinan}}</td>
                                     </tr>
                                     <tr>
-                                        <td>Kewarganegaraan</td>
+                                        <td>Diklat Kepemimpinan</td>
                                         <td>:</td>
-                                        <td> {{$data->kewarganegaraan}}</td>
+                                        <td> {{$data->diklat_kepemimpinan}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="pangkat" role="tabpanel">
+                        <div class="pt-4">
+                            <h4>Realisasi Pangkat Terakhir</h4>
+                            <table class="table table-responsive-md">
+                                <tbody>
+                                   <tr>
+                                       <td>Nomor SK</td>
+                                       <td>:</td>
+                                       <td> {{$data->nomor_sk}}</td>
+                                   </tr>
+                                   <tr>
+                                        <td>Tanggal</td>
+                                        <td>:</td>
+                                        <td> {{$data->tanggal}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>TMT SK Pengangkat</td>
+                                        <td>:</td>
+                                        <td> {{$data->tmt_sk_pangkat}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pejabat yang Mengangkat</td>
+                                        <td>:</td>
+                                        <td> {{$data->mengangkat}}</td>
                                     </tr>
                                 </tbody>
                             </table>

@@ -20,7 +20,7 @@ class User extends Authenticatable
         'jenis_kelamin','tempat_lahir','nama_ibu_kandung','rukun_tetangga',
         'rukun_warga','nama_provinsi','nama_kabupaten','nama_kecamatan','nama_dusun','nama_desa',
         'kode_pos','agama','status_perkawinan','kewarganegaraan','nomor_induk_pegawai','nomor_sk',
-        'no_hp','tanggal','mengangkat','tmt_jabatan','diklat_kepemimpinan','asal_slta','jurusan_slta',
+        'no_hp','tanggal','mengangkat','tmt_jabatan','tmt_sk_pangkat','jabatan','diklat_kepemimpinan','asal_slta','jurusan_slta',
         'tanggal_tamat_slta','universitas','jurusan_universitas','tanggal_tamat_universitas','pangkat',
         'golongan'
     ];

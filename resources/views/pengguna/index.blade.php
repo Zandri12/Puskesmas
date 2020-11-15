@@ -58,6 +58,7 @@
                         <tr>
                             <th></th>
                             <th>Aksi</th>
+                            <th>Detail</th>
                             <th>Nama</th>
                             <th>Jenis Kelamin</th>
                             <th>Tempat Lahir</th>
@@ -103,6 +104,8 @@
                                 data-tanggal="{{ $data['tanggal'] }}"
                                 data-mengangkat="{{ $data['mengangkat'] }}"
                                 data-tmt_jabatan="{{ $data['tmt_jabatan'] }}"
+                                data-tmt_sk_pangkat="{{ $data['tmt_sk_pangkat'] }}"
+                                data-jabatan="{{ $data['jabatan'] }}"
                                 data-diklat_kepemimpinan="{{ $data['diklat_kepemimpinan'] }}"
                                 data-asal_slta="{{ $data['asal_slta'] }}"
                                 data-jurusan_slta="{{ $data['jurusan_slta'] }}"
@@ -117,7 +120,7 @@
                                 data-golongan="{{$data['golongan']}}"
                                 data-target="#editModal"><i class="fa fa-pencil"></i></button>
                             <a href="/pengguna/delete/{{$data['id']}}" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
-                            <a href="/pengguna/data_lengkap/{{$data['id']}}" class="btn btn-info shadow btn-xs sharp"><i class="fa fa-eye"></i></a></td>
+                            <td> <a href="/pengguna/data_lengkap/{{$data['id']}}" class="btn btn-info shadow btn-xs sharp"><i class="fa fa-eye"></i></a></td></td>
                             <td>{{$data['nama']}}</td>
                             <td>{{$data['jenis_kelamin']}}</td>
                             <td>{{$data['tempat_lahir']}}</td>
@@ -277,6 +280,18 @@
                             name="tmt_jabatan" placeholder="TMT Jabatan...">
                     </div>
                     <div class="form-group">
+                        <label>TMT SK Pangkat</label>
+                        <input type="date"
+                            class="form-control input-rounded @error('tmt_sk_pangkat') is-invalid @enderror"
+                            name="tmt_sk_pangkat" placeholder="TMT SK Pangkat...">
+                    </div>
+                    <div class="form-group">
+                        <label>Jabatan</label>
+                        <input type="text"
+                            class="form-control input-rounded @error('jabatan') is-invalid @enderror"
+                            name="jabatan" placeholder="Jabatan...">
+                    </div>
+                    <div class="form-group">
                         <label>Diklat Kepemimpinan</label>
                         <input type="text"
                             class="form-control input-rounded @error('diklat_kepemimpinan') is-invalid @enderror"
@@ -346,10 +361,11 @@
                         </div>
                     </div>
                     
-                @foreach ($data_induk as $data_induk)
+               
                 <div class="form-group">
                     <label>Data Induk</label>
                 <div class="row">
+                    @forelse ($data_induk as $data_induk)
                       <div class="col-sm-6"> 
                          <select name="pangkat" class="">
                             <option selected>Pilih Pangkat...</option>
@@ -365,8 +381,26 @@
                           </select>
                         </div>
                   </div>
+                  @empty
+                  <div class="col-sm-6"> 
+                    <select name="pangkat" class="">
+                    
+                    <option value="">Pangkat Kosong</option>
+                   </select> 
+                    
+                     
+                 </div>
+                 <div class="col-sm-6 mt-2 mt-sm-0">
+                     <select name="golongan" class="">
+                       
+                         <option value="">Golongan Kosong</option>
+                     </select>
+                   </div>
+                </div>
+                  @endforelse  
+                
               </div>
-              @endforeach  
+              
            
             </div>
             <div class="modal-footer">
@@ -520,6 +554,18 @@
                             name="tmt_jabatan" placeholder="TMT Jabatan...">
                     </div>
                     <div class="form-group">
+                        <label>TMT SK Pangkat</label>
+                        <input type="date" id="tmt_sk_pangkat"
+                            class="form-control input-rounded @error('tmt_sk_pangkat') is-invalid @enderror"
+                            name="tmt_sk_pangkat" placeholder="TMT SK Pangkat...">
+                    </div>
+                    <div class="form-group">
+                        <label>Jabatan</label>
+                        <input type="text" id="jabatan"
+                            class="form-control input-rounded @error('jabatan') is-invalid @enderror"
+                            name="jabatan" placeholder="Jabatan...">
+                    </div>
+                    <div class="form-group">
                         <label>Diklat Kepemimpinan</label>
                         <input type="text" id="diklat_kepemimpinan"
                             class="form-control input-rounded @error('diklat_kepemimpinan') is-invalid @enderror"
@@ -589,27 +635,44 @@
                             </select>
                         </div>
                     </div>
-                    @foreach ($data_induk2 as $data_induk2)
-                <div class="form-group">
-                    <label>Data Induk</label>
-                <div class="row">
-                      <div class="col-sm-6"> 
-                         <select name="pangkat" class="" id="pangkat">
-                            <option selected>Pilih Pangkat...</option>
-                         <option value="{{$data_induk2['pangkat']}}">{{$data_induk2['pangkat']}}</option>
-                        </select> 
-                         
-                          
+                    <div class="form-group">
+                        <label>Data Induk</label>
+                    <div class="row">
+                        @forelse ($data_induk2 as $data_induk2)
+                          <div class="col-sm-6"> 
+                             <select id="pangkat" name="pangkat" class="">
+                                <option selected>Pilih Pangkat...</option>
+                             <option value="{{$data_induk2['pangkat']}}">{{$data_induk2['pangkat']}}</option>
+                            </select> 
+                             
+                              
+                          </div>
+                          <div class="col-sm-6 mt-2 mt-sm-0">
+                              <select id="golongan" name="golongan" class="">
+                                  <option selected>Pilih Golongan...</option>
+                                  <option value="{{$data_induk2['golongan']}}">{{$data_induk2['golongan']}}</option>
+                              </select>
+                            </div>
                       </div>
-                      <div class="col-sm-6 mt-2 mt-sm-0">
-                          <select name="golongan" class="" id="golongan">
-                              <option selected>Pilih Golongan...</option>
-                              <option value="{{$data_induk2['golongan']}}">{{$data_induk2['golongan']}}</option>
-                          </select>
-                        </div>
+                      @empty
+                      <div class="col-sm-6"> 
+                        <select id="pangkat" name="pangkat" class="">
+                        
+                        <option value="">Pangkat Kosong</option>
+                       </select> 
+                        
+                         
+                     </div>
+                     <div class="col-sm-6 mt-2 mt-sm-0">
+                         <select id="golongan" name="golongan" class="">
+                           
+                             <option value="">Golongan Kosong</option>
+                         </select>
+                       </div>
+                    </div>
+                      @endforelse  
+                    
                   </div>
-              </div>
-              @endforeach  
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary">Simpan Data</button>
@@ -647,6 +710,8 @@
                 var tanggal = button.data('tanggal')
                 var mengangkat = button.data('mengangkat')
                 var tmt_jabatan = button.data('tmt_jabatan')
+                var tmt_sk_pangkat = button.data('tmt_sk_pangkat')
+                var tmt_sk_pangkat = button.data('jabatan')
                 var diklat_kepemimpinan = button.data('diklat_kepemimpinan')
                 var asal_slta = button.data('asal_slta')
                 var jurusan_slta = button.data('jurusan_slta')
@@ -684,6 +749,8 @@
                 modal.find('.modal-body #tanggal').val(tanggal);
                 modal.find('.modal-body #mengangkat').val(mengangkat);
                 modal.find('.modal-body #tmt_jabatan').val(tmt_jabatan);
+                modal.find('.modal-body #tmt_sk_pangkat').val(tmt_sk_pangkat);
+                modal.find('.modal-body #jabatan').val(jabatan);
                 modal.find('.modal-body #diklat_kepemimpinan').val(diklat_kepemimpinan);
                 modal.find('.modal-body #asal_slta').val(asal_slta);
                 modal.find('.modal-body #jurusan_slta').val(jurusan_slta);

@@ -37,6 +37,8 @@ class CreateUsersTable extends Migration
             $table->string('tanggal')->nullable();
             $table->string('mengangkat')->nullable();
             $table->string('tmt_jabatan')->nullable();
+            $table->string('tmt_sk_pangkat')->nullable();
+            $table->string('jabatan')->nullable();
             $table->string('diklat_kepemimpinan')->nullable();
             $table->string('asal_slta')->nullable();
             $table->string('jurusan_slta')->nullable();
