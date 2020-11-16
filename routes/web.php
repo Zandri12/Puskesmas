@@ -39,3 +39,5 @@ Route::get('GetSubCatAgainstMainCatEdit/{id}', 'Pengguna@GetSubCatAgainstMainCat
 Route::get('/lupasandi', 'LupaPassword@lupa')->name('lupapassword');
 Route::get('/ganti-sandi', 'Keamanan\GantiPassword@index')->name('ganti_sandi_index');
 Route::post('/ganti-sandi', 'Keamanan\GantiPassword@store')->name('ganti.sandi');
+
+Route::get('/laporan', 'LaporanController@index')->name('semua_laporan');

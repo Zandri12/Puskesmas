@@ -50,7 +50,7 @@
                 </a>
                 <ul aria-expanded="false">
                     <li><a href="uc-select2.html">Kategori Laporan</a></li>
-                    <li><a href="uc-nestable.html">Semua Laporan</a></li>
+                    <li><a href="{{route('semua_laporan')}}">Semua Laporan</a></li>
                     <li><a href="uc-noui-slider.html">Impor Data</a></li>
                     <li><a href="uc-sweetalert.html">Ekspor Data</a></li>
                 </ul>

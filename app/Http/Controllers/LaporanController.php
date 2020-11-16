@@ -14,7 +14,7 @@ class LaporanController extends Controller
      */
     public function index()
     {
-        //
+        return view('Laporan.index');
     }
 
     /**
@@ -24,7 +24,21 @@ class LaporanController extends Controller
      */
     public function create()
     {
-        //
+        if($request->hasfile('file')){
+            $file = $request->file('file');
+            $filename = $file['filename']->getClientOriginalExtension();
+            Storage::make($file)->save( public_path('/storage/loonstrookjes/' . $filename) );
+            dd($filename);
+
+        }
+
+
+        return Payment::create([
+            'file_name' => $filename,
+            'file_path' => '/storage/loonstrookjes/',
+            'user_id' => $data['employee'],
+        ]);
+
     }
 
     /**

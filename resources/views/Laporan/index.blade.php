@@ -17,6 +17,30 @@
 </div>
 @endsection
 @section('content')
-
+<div class="row">
+    <div class="col-xl-12 col-xxl-6">
+        <div class="card">
+            <div class="card-body">
+               
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-12 col-xxl-6">
+        <div class="card">
+            <div class="card-body">
+               
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xl-12 col-xxl-12">
+        <div class="card">
+            <div class="card-body">
+               
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
 
