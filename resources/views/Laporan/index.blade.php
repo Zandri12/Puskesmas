@@ -46,9 +46,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>Nama File</th>
-                                <th>User Id</th>
-                                <th>Kategori</th>
-                                <th>download</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -59,11 +57,9 @@
                             <tr>
                                 <td>{{$no++}}</td>
                                 <td>{{$data['file']}}</td>
-                                <td>{{$data['user_id']}}</td>
-                                <td>{{$data['kategori_id']}}</td>
                                 <td align="center">
-                                <a href="/laporan/download/{{$data['kategori_id']}}/{{$data['file']}}" class="shadow btn btn-success btn-xs sharp"><i class="fa fa-download"></i></a>
-                                    <a href="#" class="shadow btn btn-danger btn-xs sharp"><i class="fa fa-trash"></i></a></td>
+                                <a href="/laporan/download/{{$data['kode']}}/{{$data['file']}}" class="shadow btn btn-success btn-xs sharp"><i class="fa fa-download"></i></a>
+                                    <a href="/laporan/delete/{{$data['id']}}" class="shadow btn btn-danger btn-xs sharp"><i class="fa fa-trash"></i></a></td>
                             </tr>
                         @endforeach
                         
@@ -72,9 +68,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>Nama File</th>
-                                <th>User Id</th>
-                                <th>Kategori</th>
-                                <th>download</th>
+                                <th>Aksi</th>
                             </tr>
                         </tfoot>
                     </table>
@@ -102,16 +96,24 @@
                             name="file">
 
 
+
+                            <?php
+
+                            $karakter = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz123456789';
+                            $shuffle  = substr(str_shuffle($karakter), 0, 5);
+                          
+                            
+                            ?>        
                     </div>
                     <div class="form-group">
                         {{-- <label>Data Pengaturan</label> --}}
-                        <input type="text" class="form-control input-rounded" name="kategori_id"
-                            placeholder="Kategori">
+                    <input type="text"  value="{{$shuffle}}" class="form-control input-rounded" name="kode"
+                            >
                     </div>
                     <div class="form-group">
                         {{-- <label>Data Pengaturan</label> --}}
-                        <input type="text" class="form-control input-rounded" name="user_id"
-                            placeholder="User">
+                        <input type="text" class="form-control input-rounded" name="nama_file"
+                            placeholder="Nama File">
                     </div>
 
 

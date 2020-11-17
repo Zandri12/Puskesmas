@@ -31,9 +31,9 @@ class LaporanController extends Controller
        
         $data = $request->validate([
             
-            'user_id' => 'max:255',
+            'kode' => 'max:255',
             'file'=> 'max:255',
-            'kategori_id' => 'max:255',
+            'nama_file' => 'max:255',
             
         ]);
         if($request->file('file') == '') {
@@ -44,10 +44,9 @@ class LaporanController extends Controller
             $acak  = $file->getClientOriginalExtension();
             // $kat = $file->getClientOriginalName();
             $kat = $file->getClientOriginalName();
-            $kategori = $request->kategori_id;
+            $kategori = $request->kode;
             $ok = $kategori;
-
-            $fileName =$ok.'-'.rand(11111,99999).'-'.$dt->format('Y-m-d-H-i-s').'.'.$acak; 
+            $fileName =$kat.'-'.rand(11111,99999).'-'.$dt->format('Y-m-d-H-i-s').'.'.$acak; 
             $request->file('file')->move("files/user/".$ok, $fileName);
             $gambar = $fileName;
         
@@ -57,8 +56,8 @@ class LaporanController extends Controller
 
             Laporan::create([
                
-                'user_id' => $data['user_id'],
-                'kategori_id' => $data['kategori_id'],
+                'kode' => $data['kode'],
+                'nama_file' => $data['nama_file'],
                 'file' => $gambar,
               
                
@@ -74,9 +73,9 @@ class LaporanController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function download($kategori_id,$file)
+    public function download($kode,$file)
     {
-       return response()->download('files/user/'.$kategori_id.'/'.$file);
+       return response()->download('files/user/'.$kode.'/'.$file);
     }
 
     /**
@@ -119,8 +118,10 @@ class LaporanController extends Controller
      * @param  \App\Laporan  $laporan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Laporan $laporan)
+    public function delete($id)
     {
-        //
+        $data = Laporan::find($id);
+        $data->delete();
+        return redirect()->back()->with(['warning' => 'Data Berhasil Dihapus!!']);
     }
 }
