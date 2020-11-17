@@ -61,8 +61,9 @@
                                 <td>{{$data['file']}}</td>
                                 <td>{{$data['user_id']}}</td>
                                 <td>{{$data['kategori_id']}}</td>
-                                <td><a href="#" class="shadow btn btn-success btn-xs sharp"><i class="fa fa-download"></i></a>
-                                    <a href="#" class="shadow btn btn-success btn-xs sharp"><i class="fa fa-download"></i></a></td>
+                                <td align="center">
+                                <a href="/laporan/download/{{$data['kategori_id']}}/{{$data['file']}}" class="shadow btn btn-success btn-xs sharp"><i class="fa fa-download"></i></a>
+                                    <a href="#" class="shadow btn btn-danger btn-xs sharp"><i class="fa fa-trash"></i></a></td>
                             </tr>
                         @endforeach
                         

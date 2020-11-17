@@ -74,9 +74,9 @@ class LaporanController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function download($kategori_id,$file)
     {
-        //
+       return response()->download('files/user/'.$kategori_id.'/'.$file);
     }
 
     /**
