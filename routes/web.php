@@ -41,3 +41,4 @@ Route::get('/ganti-sandi', 'Keamanan\GantiPassword@index')->name('ganti_sandi_in
 Route::post('/ganti-sandi', 'Keamanan\GantiPassword@store')->name('ganti.sandi');
 
 Route::get('/laporan', 'LaporanController@index')->name('semua_laporan');
+Route::post('/laporan/tambah','LaporanController@tambah')->name('tambah_laporan');

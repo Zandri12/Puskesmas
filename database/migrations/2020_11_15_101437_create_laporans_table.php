@@ -17,6 +17,7 @@ class CreateLaporansTable extends Migration
             $table->bigIncrements('id');
             $table->integer('user_id')->nullable();
             $table->integer('kategori_id')->nullable();
+            $table->string('file')->nullable();
             $table->timestamps();
         });
     }

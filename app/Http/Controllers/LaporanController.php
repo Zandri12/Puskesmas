@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Laporan;
+use App\User;
+use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class LaporanController extends Controller
@@ -14,7 +17,8 @@ class LaporanController extends Controller
      */
     public function index()
     {
-        return view('Laporan.index');
+        $data = Laporan::all();
+        return view('Laporan.index',compact('data'));
     }
 
     /**
@@ -22,23 +26,46 @@ class LaporanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function tambah(Request $request)
     {
-        if($request->hasfile('file')){
-            $file = $request->file('file');
-            $filename = $file['filename']->getClientOriginalExtension();
-            Storage::make($file)->save( public_path('/storage/loonstrookjes/' . $filename) );
-            dd($filename);
-
-        }
-
-
-        return Payment::create([
-            'file_name' => $filename,
-            'file_path' => '/storage/loonstrookjes/',
-            'user_id' => $data['employee'],
+       
+        $data = $request->validate([
+            
+            'user_id' => 'max:255',
+            'file'=> 'max:255',
+            'kategori_id' => 'max:255',
+            
         ]);
+        if($request->file('file') == '') {
+            $gambar = NULL;
+        } else {
+            $file = $request->file('file');
+            $dt = Carbon::now();
+            $acak  = $file->getClientOriginalExtension();
+            // $kat = $file->getClientOriginalName();
+            $kat = $file->getClientOriginalName();
+            $kategori = $request->kategori_id;
+            $ok = $kategori;
 
+            $fileName =$ok.'-'.rand(11111,99999).'-'.$dt->format('Y-m-d-H-i-s').'.'.$acak; 
+            $request->file('file')->move("files/user/".$ok, $fileName);
+            $gambar = $fileName;
+        
+        
+        
+        if ($data) {
+
+            Laporan::create([
+               
+                'user_id' => $data['user_id'],
+                'kategori_id' => $data['kategori_id'],
+                'file' => $gambar,
+              
+               
+            ]);
+        }
+            return redirect('/laporan')->with(['success' => 'Data Berhasil Disimpan!!']);
+        }
     }
 
     /**
