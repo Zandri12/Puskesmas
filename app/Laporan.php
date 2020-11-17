@@ -8,6 +8,6 @@ class Laporan extends Model
 {
     protected $table = 'laporans';
     protected $fillable = [
-        'nama_file','kode','file'
+        'jenis_file','kode','nama_bidan','jorong','nagari','file','nama_posyandu'
     ];
 }

@@ -53,13 +53,14 @@
                                         </div>
                                         <div class="form-group">
                                             <label class="mb-1"><strong>Password</strong></label>
-                                            <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                            <input id="myInput" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                                             @error('password')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
                                         @enderror
                                         </div>
+                                        <input type="checkbox"  onclick="myFunction()">  Perlihatkan Sandi
                                         <div class="form-row d-flex justify-content-between mt-4 mb-2">
                                         </div>
                                         <div class="text-center">
@@ -87,7 +88,16 @@
 	<script src="{{ asset ('template/vendor/bootstrap-select/dist/js/bootstrap-select.min.js')}}"></script>
     <script src="{{ asset ('template/js/custom.min.js')}}"></script>
     <script src="{{ asset ('template/js/deznav-init.js')}}"></script>
-
+    <script>
+        function myFunction() {
+          var x = document.getElementById("myInput");
+          if (x.type === "password") {
+            x.type = "text";
+          } else {
+            x.type = "password";
+          }
+        }
+        </script>
 
 </body>
 

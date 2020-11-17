@@ -15,8 +15,12 @@ class CreateLaporansTable extends Migration
     {
         Schema::create('laporans', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nama_file')->nullable();
+            $table->string('jenis_file')->nullable();
             $table->string('kode')->nullable();
+            $table->string('nama_bidan')->nullable();
+            $table->string('nama_posyandu')->nullable();
+            $table->string('nagari')->nullable();
+            $table->string('jorong')->nullable();
             $table->string('file')->nullable();
             $table->timestamps();
         });

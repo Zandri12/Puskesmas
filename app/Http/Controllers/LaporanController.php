@@ -20,7 +20,7 @@ class LaporanController extends Controller
         $data = Laporan::all();
         return view('Laporan.index',compact('data'));
     }
-
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -30,10 +30,13 @@ class LaporanController extends Controller
     {
        
         $data = $request->validate([
-            
+            'nama_bidan' => 'max:255',
+            'jorong' => 'max:255',
+            'nagari' => 'max:255',
+            'nama_posyandu' => 'max:255',
             'kode' => 'max:255',
             'file'=> 'max:255',
-            'nama_file' => 'max:255',
+            'jenis_file' => 'max:255',
             
         ]);
         if($request->file('file') == '') {
@@ -44,10 +47,15 @@ class LaporanController extends Controller
             $acak  = $file->getClientOriginalExtension();
             // $kat = $file->getClientOriginalName();
             $kat = $file->getClientOriginalName();
-            $kategori = $request->kode;
-            $ok = $kategori;
+            
+            $sip = $request->jenis_file;
+            $ng = $request->nagari;
+            $jr = $request->jorong;
+            $ok = $sip;
+            $nagari = $ng;
+            $jorong = $jr;
             $fileName =$kat.'-'.rand(11111,99999).'-'.$dt->format('Y-m-d-H-i-s').'.'.$acak; 
-            $request->file('file')->move("files/user/".$ok, $fileName);
+            $request->file('file')->move("files/user/".'/'.$ok.'/'.$nagari.'/'.$jorong, $fileName);
             $gambar = $fileName;
         
         
@@ -55,9 +63,12 @@ class LaporanController extends Controller
         if ($data) {
 
             Laporan::create([
-               
+                'nama_bidan' => $data['nama_bidan'],
+                'jorong' => $data['jorong'],
+                'nagari' => $data['nagari'],
+                'nama_posyandu' => $data['nama_posyandu'],
                 'kode' => $data['kode'],
-                'nama_file' => $data['nama_file'],
+                'jenis_file' => $data['jenis_file'],
                 'file' => $gambar,
               
                
@@ -73,9 +84,9 @@ class LaporanController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function download($kode,$file)
+    public function download($jenis_file,$nagari,$jorong,$file)
     {
-       return response()->download('files/user/'.$kode.'/'.$file);
+       return response()->download('files/user/'.$jenis_file.'/'.$nagari.'/'.$jorong.'/'.$file);
     }
 
     /**
@@ -95,10 +106,7 @@ class LaporanController extends Controller
      * @param  \App\Laporan  $laporan
      * @return \Illuminate\Http\Response
      */
-    public function edit(Laporan $laporan)
-    {
-        //
-    }
+    
 
     /**
      * Update the specified resource in storage.

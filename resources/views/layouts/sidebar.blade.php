@@ -27,18 +27,21 @@
                     
                 </ul>
             </li>
+            @if (Auth::user()->role == 1)
             <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                    <i class="flaticon-381-user-1"></i>
-                    <span class="nav-text">Pengguna</span>
-                </a>
-                <ul aria-expanded="false">
-                    <li><a href="{{route('semua_pengguna')}}">Semua Pengguna</a></li>
-                    <li><a href="{{route('data_induk')}}">Data Induk</a></li>
-                    <li><a href="#">Impor Data</a></li>
-                    <li><a href="#">Ekspor Data</a></li>
+                <i class="flaticon-381-user-1"></i>
+                <span class="nav-text">Pengguna</span>
+            </a>
+            <ul aria-expanded="false">
+                <li><a href="{{route('semua_pengguna')}}">Semua Pengguna</a></li>
+                <li><a href="{{route('data_induk')}}">Data Induk</a></li>
+                <li><a class="flaticon-381-lock-2" data-target="#info" data-toggle="modal" href="#"> Impor Data</a></li>
+                <li><a class="flaticon-381-lock-2" data-target="#info" data-toggle="modal" href="#"> Ekspor Data</a></li>
 
-                </ul>
-            </li>
+            </ul>
+        </li>
+            @endif
+           
             <li><a class="flaticon-381-lock-2" href="#" data-target="#info" data-toggle="modal" aria-expanded="false">
                 <i  class="flaticon-381-user-9"></i>
                 <span class="nav-text">Data Pasien</span>
