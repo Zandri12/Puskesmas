@@ -32,7 +32,7 @@
         <div class="card">
             <div class="card-body">
                 <button type="button" class="btn btn-rounded btn-warning" data-toggle="modal" data-target="#kode_files"><span
-                    class="btn-icon-left text-info"><i class="fa fa-plus color-info"></i>
+                    class="btn-icon-left text-warning"><i class="fa fa-plus color-warning"></i>
                 </span>Kode File
             </button>
             </div>
@@ -420,13 +420,67 @@
                 </button>
             </div>
             <div class="modal-body">
-
+                <h4>Kode File</h4>
+                <ol>
+                    <li>1. Laporan Kesga Gizi KB Imunisasi</li>
+                    <li>2. Laporan LB 1 Diare,PTP,P2P</li>
+                    <li>3. PROMKES</li>
+                    <li>4. KEMATIAN</li>
+                </ol>
+                <hr>
                 <h4>Kode Nagari</h4>
                 <hr>
-                
+                <ol>
+                    <li>1. Nagari STP</li>
+                    <li>2. Sei Kumayang</li>
+                    <li>3. Andaleh</li>
+                    <li>4. Mungo</li>
+                </ol>
+                <hr>
+                <h4>Kode Jorong</h4>
+                <ol>
+                    <li>1. Lakuak Dama</li>
+                    <li>2. Sikabu Kabu</>
+                    <li>3. Tj.Haro Selatan</>
+                    <li>4. Tj.Haro Utara</>
+                    <li>5. Bukik Kanduang</>
+                    <li>6. Padang Panjang</>
+                    <li>7. BTG Tabik</>
+                    <li>8. VI KP</>
+                    <li>9. Tj.KLG</>
+                    <li>1. RAGE</>
+                    <li>11. XII KP</>
+                    <li>12. SBD</>
+                    <li>13. TBG</>
+                    <li>14. MD KDK</>
+                    <li>15. VIII KP</>
+                    <li>16. Tarok</>
+                    <li>17. TB Buruak</>
+                    <li>18. KP Koto</>
+                    <li>19. KP Tangah</>
+                    <li>20. Tj.Baruah</>
+                    <li>21. G.Gandang</>
+                    <li>22. P.Gadang</>
+                    <li>23. Bl.Bukik</>
+                    <li>24. Pancuran Tinggi</>
+                    <li>25. Mustika 1</>
+                    <li>26. Mustika 2</>
+                    <li>27. BA</>
+                    <li>28. BB</>
+                    <li>29. TT</>
+                    <li>30. Batu Labi</>
+                    <li>31. BGS</>
+                    <li>32. Talaweh</>
+                    <li>33. KTB</>
+                    <li>34. LL/IBB</>
+                    <li>35. Bt Nan Gadang</>
+                    <li>36. Zipur</>
+                    <li>37. Akasia</>
+                    <li>38. Zamrud</>
+                </ol>
+               
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Simpan Data</button>
-                
+              
                 <button type="button" class="btn btn-danger light" data-dismiss="modal">Tutup</button>
             </div>
         </div>
