@@ -54,6 +54,21 @@
                 <ul aria-expanded="false">
                     <li><a href="{{route('semua_laporan')}}">Semua Laporan</a></li>
                 </ul>
+                <ul aria-expanded="false">
+                    <li><a href="#">Laporan LB1</a></li>
+                </ul>
+                <ul aria-expanded="false">
+                    <li>
+                        <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                           
+                            <span class="nav-text">Laporan Kesga Gizi KB Imunisasi..</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="{{route('semua_laporan')}}">Semua Laporan</a></li>
+                        </ul>
+                    </li>
+                    
+                </ul>
             </li>
           
             <li><a class="flaticon-381-lock-2" href="#" data-target="#info" data-toggle="modal" aria-expanded="false">
@@ -66,6 +81,11 @@
                     <span class="nav-text">Atur Ulang Sandi</span>
                 </a>
             </li>
+            <li><a href="{{route('ganti_sandi_index')}}" class="ai-icon" aria-expanded="false">
+                <i class="flaticon-381-key"></i>
+                <span class="nav-text">Ekspor Database</span>
+            </a>
+        </li>
         </ul>
     
        
