@@ -64,7 +64,7 @@
                             <span class="nav-text">Laporan Kesga Gizi KB Imunisasi..</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="{{route('semua_laporan')}}">Semua Laporan</a></li>
+                            <li><a href="{{route('lkg')}}">Identitas K1 K4</a></li>
                         </ul>
                     </li>
                     
