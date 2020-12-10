@@ -96,7 +96,7 @@
             </div>
             <div class="modal-body">
 
-                <form method="POST" action="{{route('tambah_laporan')}}" enctype="multipart/form-data">
+                <form method="POST" action="{{route('tambahk1')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <div class="row">
@@ -121,7 +121,7 @@
                         </div> 
                         <div class="col-sm-6 mt-2 mt-sm-0">
                           
-                                <input type="number" placeholder="Hamil Ke" class="form-control input-rounded"  name="hamis_ke">
+                                <input type="number" placeholder="Hamil Ke" class="form-control input-rounded"  name="hamil_ke">
                         </div>
                     </div>
                    </div>
@@ -134,10 +134,10 @@
                   </div> 
                   <div class="form-group">
                     <input type="text"   class="form-control input-rounded" placeholder="Jenis Resiko" name="jr">
-               </div>
-               <div class="form-group">
-                    <input type="text"   class="form-control input-rounded" placeholder="DPT Buku" name="DPT">
-              </div> 
+                  </div>
+                <div class="form-group">
+                        <input type="text"   class="form-control input-rounded" placeholder="DPT Buku" name="DPT">
+                </div> 
               
 
             </div>
@@ -156,7 +156,7 @@
 
 
 
-<div class="row">
+{{-- <div class="row">
     <div class="col-xl-12 col-xxl-12">
         <div class="card">
             <div class="card-body">
@@ -215,6 +215,6 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 @endsection
 

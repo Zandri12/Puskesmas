@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\k1k4;
+use App\k1;
 use Illuminate\Http\Request;
 
-class K1k4Controller extends Controller
+class K1Controller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class K1k4Controller extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\k1k4  $k1k4
+     * @param  \App\k1  $k1
      * @return \Illuminate\Http\Response
      */
-    public function show(k1k4 $k1k4)
+    public function show(k1 $k1)
     {
         //
     }
@@ -52,10 +52,10 @@ class K1k4Controller extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\k1k4  $k1k4
+     * @param  \App\k1  $k1
      * @return \Illuminate\Http\Response
      */
-    public function edit(k1k4 $k1k4)
+    public function edit(k1 $k1)
     {
         //
     }
@@ -64,10 +64,10 @@ class K1k4Controller extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\k1k4  $k1k4
+     * @param  \App\k1  $k1
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, k1k4 $k1k4)
+    public function update(Request $request, k1 $k1)
     {
         //
     }
@@ -75,10 +75,10 @@ class K1k4Controller extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\k1k4  $k1k4
+     * @param  \App\k1  $k1
      * @return \Illuminate\Http\Response
      */
-    public function destroy(k1k4 $k1k4)
+    public function destroy(k1 $k1)
     {
         //
     }
