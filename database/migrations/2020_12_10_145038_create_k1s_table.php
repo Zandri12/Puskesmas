@@ -22,6 +22,7 @@ class CreateK1sTable extends Migration
             $table->string('alamat');
             $table->string('na_suami');
             $table->string('hamil_ke');
+            $table->string('HPHT');
             $table->string('usia_kehamilan');
             $table->string('jr');
             $table->string('DPT');

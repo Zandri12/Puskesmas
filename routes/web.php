@@ -48,4 +48,5 @@ Route::get('/laporan/download/{jenis_file}/{nagari}/{jorong}/{file}','LaporanCon
 
 
 Route::get('/laporan/lkg','K1Controller@index')->name('lkg');
-Route::post('/laporan/lkg/tambah_k1','K1Controller@tambahk1')->name('tambahk1');
+Route::post('/laporan/lkg/tambah_k1','K1Controller@tambah')->name('tambahk1');
+Route::post('/laporan/lkg/ubah_k1','K1Controller@ubah')->name('ubahk1');

@@ -35,6 +35,7 @@
                     <table id="example" class="display" style="min-width: 845px">
                         <thead>
                             <tr>
+                                <th scope="col">Aksi</th>
                                 <th scope="col">No</th>
                                 <th scope="col">Nama Ibu</th>
                                 <th scope="col">Umur</th>
@@ -51,22 +52,51 @@
                             @php
                             $no = 1;
                         @endphp
-                     
-                           <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                         @foreach ($data as $data)
+                            <tr>
+                               
+                                <td>
+                                    <a href="/laporan/lkg/ubah_k1/{{$data['id']}}"
+                                    class="shadow btn btn-warning btn-xs sharp"><i class="fa fa-pencil"></i></a>
+                                    <a href="/laporan/lkg/hapus_k1/{{$data['id']}}"
+                                    class="shadow btn btn-danger btn-xs sharp"><i class="fa fa-trash"></i></a>
+
+                                </td>
+                                <td>{{$no++}}</td>
+                                <td>
+                                    <input align="center" style="border: none" type="text" value="{{$data['na_ibu']}}">
+                                </td>
+                                <td>
+                                    <input align="center" style="border: none" type="number" value="{{$data['umur']}}">
+                                </td>
+                                <td>
+                                    <input align="center" style="border: none" type="text" value="{{$data['alamat']}}">
+                                </td>
+                                <td>
+                                    <input align="center" style="border: none" type="text" value="{{$data['na_suami']}}">
+                                </td>
+                                <td>
+                                    <input align="center" style="border: none" type="number" value="{{$data['hamil_ke']}}">
+                                </td>
+                                <td>
+                                    <input align="center" style="border: none" type="text" value="{{$data['HPHT']}}">    
+                                </td>
+                                <td>
+                                    <input align="center" style="border: none" type="text" value="{{$data['usia_kehamilan']}}">    
+                                </td>
+                                <td>
+                                    <input align="center" style="border: none" type="text" value="{{$data['jr']}}">    
+                                </td>
+                                <td>
+                                    <input align="center" style="border: none" type="text" value="{{$data['DPT']}}">    
+                                </td>
+                               
                            </tr>
+                        @endforeach
                         </tbody>
                         <tfoot>
                             <tr>
+                                <th scope="col">Aksi</th>
                                 <th scope="col">No</th>
                                 <th scope="col">Nama Ibu</th>
                                 <th scope="col">Umur</th>
@@ -99,6 +129,9 @@
                 <form method="POST" action="{{route('tambahk1')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
+                        <input type="text"   class="form-control input-rounded" placeholder="Nama Nagari" name="nama_nagari">
+                   </div>
+                    <div class="form-group">
                         <div class="row">
                             <div class="col-sm-6 mt-2 mt-sm-0">
                                 <input type="text"   class="form-control input-rounded" placeholder="Nama Ibu" name="na_ibu">
@@ -127,7 +160,7 @@
                    </div>
 
                     <div class="form-group">
-                        <input type="text"   class="form-control input-rounded" placeholder="HPTD" name="HPTD">
+                        <input type="text"   class="form-control input-rounded" placeholder="HPHT" name="HPHT">
                    </div>
                    <div class="form-group">
                         <input type="text"   class="form-control input-rounded" placeholder="Usia Kehamilan" name="usia_kehamilan">
