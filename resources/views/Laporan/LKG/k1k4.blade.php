@@ -17,6 +17,27 @@
 </div>
 @endsection
 @section('content')
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+@if ($message = Session::get('warning'))
+    <div class="alert alert-warning alert-block">
+    <button type="button" class="close" data-dismiss="alert">×</button> 
+    <strong>{{ $message }}</strong>
+</div>
+@endif
+@if ($message = Session::get('success'))
+      <div class="alert alert-success alert-block">
+        <button type="button" class="close" data-dismiss="alert">×</button> 
+          <strong>{{ $message }}</strong>
+      </div>
+    @endif
 <div class="row">
     <div class="col-xl-12 col-xxl-12">
         <div class="card">
@@ -56,40 +77,45 @@
                             <tr>
                                
                                 <td>
-                                    <a href="/laporan/lkg/ubah_k1/{{$data['id']}}"
-                                    class="shadow btn btn-warning btn-xs sharp"><i class="fa fa-pencil"></i></a>
+                                    {{-- <a href="/laporan/lkg/ubah_k1/{{$data['id']}}"
+                                    class="shadow btn btn-warning btn-xs sharp"><i class="fa fa-pencil"></i></a> --}}
                                     <a href="/laporan/lkg/hapus_k1/{{$data['id']}}"
                                     class="shadow btn btn-danger btn-xs sharp"><i class="fa fa-trash"></i></a>
-
+                                    <form method="POST" action="/laporan/lkg/ubah_k1/{{$data['id']}}" enctype="multipart/form-data">
+                                    {{ csrf_field() }}
+                                    <button type="submit" class="mr-1 shadow btn btn-warning btn-xs sharp"><i class="fa fa-pencil"></i></button>
                                 </td>
                                 <td>{{$no++}}</td>
+                              
                                 <td>
-                                    <input align="center" style="border: none" type="text" value="{{$data['na_ibu']}}">
+                                    <input align="center" style="border: none" name="na_ibu" type="text" value="{{$data['na_ibu']}}">
                                 </td>
                                 <td>
-                                    <input align="center" style="border: none" type="number" value="{{$data['umur']}}">
+                                    <input align="center" style="border: none" name="umur" type="number" value="{{$data['umur']}}">
                                 </td>
                                 <td>
-                                    <input align="center" style="border: none" type="text" value="{{$data['alamat']}}">
+                                    <input align="center" style="border: none" name="alamat" type="text" value="{{$data['alamat']}}">
                                 </td>
                                 <td>
-                                    <input align="center" style="border: none" type="text" value="{{$data['na_suami']}}">
+                                    <input align="center" style="border: none" name="na_suami" type="text" value="{{$data['na_suami']}}">
                                 </td>
                                 <td>
-                                    <input align="center" style="border: none" type="number" value="{{$data['hamil_ke']}}">
+                                    <input align="center" style="border: none" name="hamil_ke" type="number" value="{{$data['hamil_ke']}}">
                                 </td>
                                 <td>
-                                    <input align="center" style="border: none" type="text" value="{{$data['HPHT']}}">    
+                                    <input align="center" style="border: none" name="HPHT" type="text" value="{{$data['HPHT']}}">    
                                 </td>
                                 <td>
-                                    <input align="center" style="border: none" type="text" value="{{$data['usia_kehamilan']}}">    
+                                    <input align="center" style="border: none" name="usia_kehamilan" type="text" value="{{$data['usia_kehamilan']}}">    
                                 </td>
                                 <td>
-                                    <input align="center" style="border: none" type="text" value="{{$data['jr']}}">    
+                                    <input align="center" style="border: none" name="jr" type="text" value="{{$data['jr']}}">    
                                 </td>
                                 <td>
-                                    <input align="center" style="border: none" type="text" value="{{$data['DPT']}}">    
+                                    <input align="center" style="border: none" name="DPT" type="text" value="{{$data['DPT']}}">    
                                 </td>
+                            
+                                </form>
                                
                            </tr>
                         @endforeach

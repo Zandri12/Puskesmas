@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\k1;
+use DB;
 use Illuminate\Http\Request;
 
 class K1Controller extends Controller
@@ -70,7 +71,19 @@ class K1Controller extends Controller
      */
     public function ubah(Request $request,$id)
     {
-        //
+        DB::table('k1s')->where('id',$request->id)->update([
+            'na_ibu' => $request->na_ibu,
+            'umur' => $request->umur,
+            'alamat' => $request->alamat,
+            'na_suami' => $request->na_suami,
+            'hamil_ke' => $request->hamil_ke,
+            'HPHT' => $request->HPHT,
+            'usia_kehamilan' => $request->usia_kehamilan,
+            'jr' => $request->jr,
+            'DPT' => $request->umur
+           
+        ]);
+            return redirect('/laporan/lkg')->with(['success' => 'Data Berhasil Diubah!!']);
     }
 
     /**
@@ -113,8 +126,10 @@ class K1Controller extends Controller
      * @param  \App\k1  $k1
      * @return \Illuminate\Http\Response
      */
-    public function destroy(k1 $k1)
+    public function hapus($id)
     {
-        //
+        $data = k1::find($id);
+        $data->delete();
+        return redirect()->back()->with(['warning' => 'Data Berhasil Dihapus!!']);
     }
 }
