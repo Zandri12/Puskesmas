@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\k1;
-use DB;
+use App\k4;
 use Illuminate\Http\Request;
 
-class K1Controller extends Controller
+class K4Controller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,15 +14,9 @@ class K1Controller extends Controller
      */
     public function index()
     {
-        $data = k1::all();
-        return view('Laporan.LKG.k1k4',compact('data'));
+        //
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function tambah(Request $request)
     {
         $data = $request->validate([
@@ -33,29 +26,25 @@ class K1Controller extends Controller
             'umur'=>'max:255',
             'alamat' => 'max:255',
             'na_suami'=>'max:255',
-            'hamil_ke' => 'max:255',
-            'HPHT' => 'max:255',
-            'usia_kehamilan'=>'max:255',
-            'jr' => 'max:255',
-            'DPT'=>'max:255',
+            'tglk4' => 'max:255',
+            'masalah' => 'max:255',
+           
             
         ]);
         
         
         if ($data) {
 
-            k1::create([
+            k4::create([
                 'nama_nagari' => $data['nama_nagari'],
                 'na_ibu' => $data['na_ibu'],
                 'nama_nagari' => $data['nama_nagari'],
                 'umur' => $data['umur'],
                 'alamat' => $data['alamat'],
                 'na_suami' => $data['na_suami'],
-                'hamil_ke' => $data['hamil_ke'],
-                'HPHT' => $data['HPHT'],
-                'usia_kehamilan' => $data['usia_kehamilan'],
-                'jr' => $data['jr'],
-                'DPT' => $data['DPT'],
+                'tglk4' => $data['tglk4'],
+                'masalah' => $data['masalah'],
+                
                 
                
             ]);
@@ -64,35 +53,42 @@ class K1Controller extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Show the form for creating a new resource.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function ubah(Request $request,$id)
     {
-        DB::table('k1s')->where('id',$request->id)->update([
+        DB::table('k4s')->where('id',$request->id)->update([
             'na_ibu' => $request->na_ibu,
             'umur' => $request->umur,
             'alamat' => $request->alamat,
             'na_suami' => $request->na_suami,
-            'hamil_ke' => $request->hamil_ke,
-            'HPHT' => $request->HPHT,
-            'usia_kehamilan' => $request->usia_kehamilan,
-            'jr' => $request->jr,
-            'DPT' => $request->DPT
+            'tglk4' => $request->tglk4,
+            'masalah' => $request->masalah
            
         ]);
             return redirect('/laporan/lkg')->with(['success' => 'Data Berhasil Diubah!!']);
     }
 
     /**
-     * Display the specified resource.
+     * Store a newly created resource in storage.
      *
-     * @param  \App\k1  $k1
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function show(k1 $k1)
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\k4  $k4
+     * @return \Illuminate\Http\Response
+     */
+    public function show(k4 $k4)
     {
         //
     }
@@ -100,10 +96,10 @@ class K1Controller extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\k1  $k1
+     * @param  \App\k4  $k4
      * @return \Illuminate\Http\Response
      */
-    public function edit(k1 $k1)
+    public function edit(k4 $k4)
     {
         //
     }
@@ -112,10 +108,10 @@ class K1Controller extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\k1  $k1
+     * @param  \App\k4  $k4
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, k1 $k1)
+    public function update(Request $request, k4 $k4)
     {
         //
     }
@@ -123,7 +119,7 @@ class K1Controller extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\k1  $k1
+     * @param  \App\k4  $k4
      * @return \Illuminate\Http\Response
      */
     public function hapus($id)
