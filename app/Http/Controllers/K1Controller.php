@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\k1;
+use App\k4;
 use DB;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,8 @@ class K1Controller extends Controller
     public function index()
     {
         $data = k1::all();
-        return view('Laporan.LKG.k1k4',compact('data'));
+        $datas = k4::all();
+        return view('Laporan.LKG.k1k4',compact('data','datas'));
     }
 
     /**
@@ -74,8 +76,9 @@ class K1Controller extends Controller
     public function ubah(Request $request,$id)
     {
         DB::table('k1s')->where('id',$request->id)->update([
-            'na_ibu' => $request->na_ibu,
-            'na_ibu' => $request->na_ibu,
+            'nama_nagari' => $request->nama_nagari,
+            'nama_jorong' => $request->nama_jorong,
+            'bulan' => $request->bulan,
             'na_ibu' => $request->na_ibu,
             'umur' => $request->umur,
             'alamat' => $request->alamat,

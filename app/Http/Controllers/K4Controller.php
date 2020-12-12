@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\k4;
+use DB;
 use Illuminate\Http\Request;
 
 class K4Controller extends Controller
@@ -21,8 +22,9 @@ class K4Controller extends Controller
     {
         $data = $request->validate([
             'nama_nagari' => 'max:255',
+            'nama_jorong' => 'max:255',
+            'bulan' => 'max:255',
             'na_ibu'=>'max:255',
-            'nama_nagari' => 'max:255',
             'umur'=>'max:255',
             'alamat' => 'max:255',
             'na_suami'=>'max:255',
@@ -37,8 +39,9 @@ class K4Controller extends Controller
 
             k4::create([
                 'nama_nagari' => $data['nama_nagari'],
+                'nama_jorong' => $data['nama_jorong'],
+                'bulan' => $data['bulan'],
                 'na_ibu' => $data['na_ibu'],
-                'nama_nagari' => $data['nama_nagari'],
                 'umur' => $data['umur'],
                 'alamat' => $data['alamat'],
                 'na_suami' => $data['na_suami'],
@@ -60,6 +63,9 @@ class K4Controller extends Controller
     public function ubah(Request $request,$id)
     {
         DB::table('k4s')->where('id',$request->id)->update([
+            'nama_nagari' => $request->nama_nagari,
+            'nama_jorong' => $request->nama_jorong,
+            'bulan' => $request->bulan,
             'na_ibu' => $request->na_ibu,
             'umur' => $request->umur,
             'alamat' => $request->alamat,

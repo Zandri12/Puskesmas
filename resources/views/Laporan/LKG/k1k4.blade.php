@@ -60,6 +60,9 @@
                             <tr>
                                 <th scope="col">Aksi</th>
                                 <th scope="col">No</th>
+                                <th scope="col">Nama Nagari</th>
+                                <th scope="col">Nama Jorong</th>
+                                <th scope="col">Bulan</th>
                                 <th scope="col">Nama Ibu</th>
                                 <th scope="col">Umur</th>
                                 <th scope="col">Alamat</th>
@@ -88,7 +91,15 @@
                                     <button type="submit" class="mr-1 shadow btn btn-warning btn-xs sharp"><i class="fa fa-pencil"></i></button>
                                 </td>
                                 <td>{{$no++}}</td>
-                              
+                                <td>
+                                    <input align="center" style="border: none" name="nama_nagari" type="text" value="{{$data['nama_nagari']}}">
+                                </td>
+                                <td>
+                                    <input align="center" style="border: none" name="nama_jorong" type="text" value="{{$data['nama_jorong']}}">
+                                </td>
+                                <td>
+                                    <input align="center" style="border: none" name="bulan" type="text" value="{{$data['bulan']}}">
+                                </td>
                                 <td>
                                     <input align="center" style="border: none" name="na_ibu" type="text" value="{{$data['na_ibu']}}">
                                 </td>
@@ -126,6 +137,9 @@
                             <tr>
                                 <th scope="col">Aksi</th>
                                 <th scope="col">No</th>
+                                <th scope="col">Nama Nagari</th>
+                                <th scope="col">Nama Jorong</th>
+                                <th scope="col">Bulan</th>
                                 <th scope="col">Nama Ibu</th>
                                 <th scope="col">Umur</th>
                                 <th scope="col">Alamat</th>
@@ -253,6 +267,10 @@
                         <thead>
                             <tr>
                                 <th scope="col">No</th>
+                                <th scope="col">Aksi</th>
+                                <th scope="col">Nama Nagari</th>
+                                <th scope="col">Nama Jorong</th>
+                                <th scope="col">Bulan</th>
                                 <th scope="col">Nama Ibu</th>
                                 <th scope="col">Umur</th>
                                 <th scope="col">Alamat</th>
@@ -266,28 +284,62 @@
                             @php
                             $no = 1;
                         @endphp
-                     
+                          @foreach ($datas as $datas)
                            <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            
+                               <td>{{$no++}}</td>
+                               <td>
+                                <a href="/laporan/lkg/hapus_k4/{{$datas['id']}}"
+                                class="shadow btn btn-danger btn-xs sharp"><i class="fa fa-trash"></i></a>
+                                <form method="POST" action="/laporan/lkg/ubah_k4/{{$datas['id']}}" enctype="multipart/form-data">
+                                {{ csrf_field() }}
+                                <button type="submit" class="mr-1 shadow btn btn-warning btn-xs sharp"><i class="fa fa-pencil"></i></button>
+                               </td>
+                            <td>
+
+                                <input align="center" style="border: none" name="nama_nagari" type="text" value="{{$datas['nama_nagari']}}">
+                            </td>
+                            <td>
+                                <input align="center" style="border: none" name="nama_jorong" type="text" value="{{$datas['nama_jorong']}}">
+                            </td>
+                            <td>
+                                <input align="center" style="border: none" name="bulan" type="text" value="{{$datas['bulan']}}">
+                            </td>
+                            <td>
+                                <input align="center" style="border: none" name="na_ibu" type="text" value="{{$datas['na_ibu']}}">
+                            </td>
+                            <td>
+                                <input align="center" style="border: none" name="umur" type="number" value="{{$datas['umur']}}">
+                            </td>
+                            <td>
+                                <input align="center" style="border: none" name="alamat" type="text" value="{{$datas['alamat']}}">
+                            </td>
+                            <td>
+                                <input align="center" style="border: none" name="na_suami" type="text" value="{{$datas['na_suami']}}">
+                            </td>
+                            <td>
+                                <input align="center" style="border: none" name="tglk4" type="date" value="{{$datas['tglk4']}}">
+                            </td>
+                            <td>
+                                <input align="center" style="border: none" name="masalah" type="text" value="{{$datas['masalah']}}">
+                            </td>
+                        </form>
+                      
                            </tr>
+                           @endforeach
                         </tbody>
                         <tfoot>
                             <tr>
                                 <th scope="col">No</th>
+                                <th scope="col">Aksi</th>
+                                <th scope="col">Nama Nagari</th>
+                                <th scope="col">Nama Jorong</th>
+                                <th scope="col">Bulan</th>
                                 <th scope="col">Nama Ibu</th>
                                 <th scope="col">Umur</th>
                                 <th scope="col">Alamat</th>
                                 <th scope="col">Nama Suami</th>
                                 <th scope="col">Tanggal K4</th>
                                 <th scope="col">Masalah</th>
-                                
                             </tr>
                         </tfoot>
                     </table>
@@ -311,6 +363,21 @@
                     @csrf
                     <div class="form-group">
                         <input type="text"   class="form-control input-rounded" placeholder="Nama Nagari" name="nama_nagari">
+                   </div>
+                   <div class="form-group">
+                    <input type="text"   class="form-control input-rounded" placeholder="Nama Jorong" name="nama_jorong">
+                   </div>
+                   <div class="form-group">
+                    <select name="bulan"class="form-control @error('bulan') is-invalid @enderror"  id="bulan">
+                        <option selected="selected">Bulan</option>
+                        <?php
+                        $bulan=array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember");
+                        $jlh_bln=count($bulan);
+                        for($c=0; $c<$jlh_bln; $c+=1){
+                            echo"<option value=$bulan[$c]> $bulan[$c] </option>";
+                        }
+                        ?>
+                        </select>
                    </div>
                     <div class="form-group">
                         <div class="row">
