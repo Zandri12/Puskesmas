@@ -51,3 +51,6 @@ Route::get('/laporan/lkg','K1Controller@index')->name('lkg');
 Route::post('/laporan/lkg/tambah_k1','K1Controller@tambah')->name('tambahk1');
 Route::post('/laporan/lkg/ubah_k1/{id}','K1Controller@ubah')->name('ubahk1');
 Route::get('/laporan/lkg/hapus_k1/{id}','K1Controller@hapus')->name('hapusk1');
+Route::post('/laporan/lkg/tambah_k4','K4Controller@tambah')->name('tambahk4');
+Route::post('/laporan/lkg/ubah_k4/{id}','K4Controller@ubah')->name('ubahk4');
+Route::get('/laporan/lkg/hapus_k4/{id}','K4Controller@hapus')->name('hapusk4');

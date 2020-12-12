@@ -124,7 +124,7 @@ class K4Controller extends Controller
      */
     public function hapus($id)
     {
-        $data = k1::find($id);
+        $data = k4::find($id);
         $data->delete();
         return redirect()->back()->with(['warning' => 'Data Berhasil Dihapus!!']);
     }

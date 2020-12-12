@@ -38,21 +38,23 @@
           <strong>{{ $message }}</strong>
       </div>
     @endif
+    <div class="col-xl-12 col-xxl-6">
+        <div class="card">
+            <div class="card-body">
+                <button type="button" class="btn btn-rounded btn-info" data-toggle="modal" data-target="#tambahdata"><span
+                    class="btn-icon-left text-info"><i class="fa fa-plus color-info"></i>
+                </span>Tambah Data
+            </button>
+            </div>
+        </div>
+    </div>
 <div class="row">
     <div class="col-xl-12 col-xxl-12">
+        
         <div class="card">
             <div class="card-body">
                 <div class="table-responsive">
-                    <div class="col-xl-12 col-xxl-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <button type="button" class="btn btn-rounded btn-info" data-toggle="modal" data-target="#tambahdata"><span
-                                    class="btn-icon-left text-info"><i class="fa fa-plus color-info"></i>
-                                </span>Tambah Data
-                            </button>
-                            </div>
-                        </div>
-                    </div>
+                    
                     <table id="example" class="display" style="min-width: 845px">
                         <thead>
                             <tr>
@@ -145,17 +147,32 @@
 <div class="modal fade" id="tambahdata">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
+            {{-- <div class="modal-header">
                 <h5 class="modal-title">Tambah Data</h5>
                 <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                 </button>
-            </div>
+            </div> --}}
             <div class="modal-body">
 
                 <form method="POST" action="{{route('tambahk1')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <input type="text"   class="form-control input-rounded" placeholder="Nama Nagari" name="nama_nagari">
+                   </div>
+                   <div class="form-group">
+                    <input type="text"   class="form-control input-rounded" placeholder="Nama Jorong" name="nama_jorong">
+                   </div>
+                   <div class="form-group">
+                    <select name="bulan"class="form-control @error('bulan') is-invalid @enderror"  id="bulan">
+                        <option selected="selected">Bulan</option>
+                        <?php
+                        $bulan=array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember");
+                        $jlh_bln=count($bulan);
+                        for($c=0; $c<$jlh_bln; $c+=1){
+                            echo"<option value=$bulan[$c]> $bulan[$c] </option>";
+                        }
+                        ?>
+                        </select>
                    </div>
                     <div class="form-group">
                         <div class="row">
@@ -210,18 +227,29 @@
 </div>
 
 
+<div class="col-xl-12 col-xxl-6">
+    <div class="card">
+        <div class="card-body">
+            <button type="button" class="btn btn-rounded btn-info" data-toggle="modal" data-target="#tambahdatak4"><span
+                class="btn-icon-left text-info"><i class="fa fa-plus color-info"></i>
+            </span>Tambah Data
+        </button>
+        </div>
+    </div>
+</div>
 
 
 
 
-
-{{-- <div class="row">
+<div class="row">
     <div class="col-xl-12 col-xxl-12">
         <div class="card">
+           
+        
             <div class="card-body">
                 <div class="table-responsive">
                    
-                    <table id="example2" class="display" style="min-width: 845px">
+                    <table id="example11" class="display" style="min-width: 845px">
                         <thead>
                             <tr>
                                 <th scope="col">No</th>
@@ -229,11 +257,9 @@
                                 <th scope="col">Umur</th>
                                 <th scope="col">Alamat</th>
                                 <th scope="col">Nama Suami</th>
-                                <th scope="col">Hamil Ke</th>
-                                <th scope="col">HPHT</th>
-                                <th scope="col">Usia Kehamilan</th>
-                                <th scope="col">Jenis Resiko</th>
-                                <th scope="col">DPT Buku</th>
+                                <th scope="col">Tanggal K4</th>
+                                <th scope="col">Masalah</th>
+                                
                             </tr>
                         </thead>
                         <tbody>
@@ -249,9 +275,7 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            
                            </tr>
                         </tbody>
                         <tfoot>
@@ -261,11 +285,9 @@
                                 <th scope="col">Umur</th>
                                 <th scope="col">Alamat</th>
                                 <th scope="col">Nama Suami</th>
-                                <th scope="col">Hamil Ke</th>
-                                <th scope="col">HPHT</th>
-                                <th scope="col">Usia Kehamilan</th>
-                                <th scope="col">Jenis Resiko</th>
-                                <th scope="col">DPT Buku</th>
+                                <th scope="col">Tanggal K4</th>
+                                <th scope="col">Masalah</th>
+                                
                             </tr>
                         </tfoot>
                     </table>
@@ -274,6 +296,64 @@
             </div>
         </div>
     </div>
-</div> --}}
+</div>
+<div class="modal fade" id="tambahdatak4">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Tambah Data</h5>
+                <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <form method="POST" action="{{route('tambahk4')}}" enctype="multipart/form-data">
+                    @csrf
+                    <div class="form-group">
+                        <input type="text"   class="form-control input-rounded" placeholder="Nama Nagari" name="nama_nagari">
+                   </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-6 mt-2 mt-sm-0">
+                                <input type="text"   class="form-control input-rounded" placeholder="Nama Ibu" name="na_ibu">
+                            </div> 
+                            <div class="col-sm-6 mt-2 mt-sm-0">
+                              
+                                    <input type="number" placeholder="Umur" class="form-control input-rounded"  name="umur">
+                            </div>
+                        </div> 
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text"   class="form-control input-rounded" placeholder="Alamat" name="alamat">
+                   </div>
+
+                   <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-6 mt-2 mt-sm-0">
+                            <input type="text"   class="form-control input-rounded" placeholder="Nama Suami" name="na_suami">
+                        </div> 
+                        <div class="col-sm-6 mt-2 mt-sm-0">
+                          
+                                <input type="date" placeholder="Hamil Ke" class="form-control input-rounded"  name="tglk4">
+                        </div>
+                    </div>
+                   </div>
+
+                    <div class="form-group">
+                        <input type="text"   class="form-control input-rounded" placeholder="Masalah" name="masalah">
+                   </div>
+                
+              
+
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Simpan Data</button>
+                </form>
+                <button type="button" class="btn btn-danger light" data-dismiss="modal">Tutup</button>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
 

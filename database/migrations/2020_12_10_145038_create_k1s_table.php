@@ -16,6 +16,8 @@ class CreateK1sTable extends Migration
         Schema::create('k1s', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nama_nagari');
+            $table->string('nama_jorong');
+            $table->string('bulan');
             $table->string('token')->nullable();
             $table->string('na_ibu');
             $table->string('umur');
