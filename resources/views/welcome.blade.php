@@ -36,10 +36,23 @@
                                     @endphp
                                     @if ($title == null)
                                     <h4 class="text-center mb-4">Puskesmas</h4>
+                                    <img src="{{ asset ('template/images/puskesmass.png')}}" alt="">
+                                    <div align="center"><img  width="20%" height="20%" src="{{ asset ('template/images/puskesmass.png')}}" alt=""></div>
                                     @else
-                                    <h4>{{$title->data_pengaturan}} </h4>
+                                    <h4 class="text-center mb-4">{{$title->data_pengaturan}} </h4>
+                                    <div align="center"><img  width="20%" height="20%" src="{{ asset ('template/images/puskesmass.png')}}" alt=""></div>
                                     @endif
                                   
+                                    @if (Route::has('login'))
+                                    
+                                    @auth
+									<div align="center">
+                                        <a href="{{ url('/home') }}" style="color:purple;" >
+                                            <i class="flaticon-user"></i>
+                                            Beranda
+                                        </a>
+                                    </div>
+                                    @else
                                     <form method="POST" action="{{ route('login') }}">
                                         @csrf
                                         <div class="form-group">
@@ -67,9 +80,11 @@
                                             <button type="submit" class="btn btn-primary btn-block">Masuk</button>
                                         </div>
                                     </form>
-                                    <div class="new-account mt-3">
-                                        <p>Sudah Menjadi Anggota? <a class="text-primary" href="{{route('register')}}">Daftar</a></p>
-                                    </div>
+                                    
+								 @endauth
+                                  
+                                @endif
+                                    
                                 </div>
                             </div>
                         </div>

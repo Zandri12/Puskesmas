@@ -25,6 +25,7 @@
     <link href="{{ asset ('template/vendor/bootstrap-select/dist/css/bootstrap-select.min.css')}}" rel="stylesheet">
     <link href="{{ asset ('template/css/style.css')}}" rel="stylesheet">
     <script src="{{ asset ('template/ajax/jquery-3.4.1.js')}}"></script>
+    
 
 
 	 <!-- Datatable -->
@@ -106,8 +107,12 @@
 			<div class="container-fluid">
 				@yield('welcome')
                @yield('content')
+               <!--Div where the WhatsApp will be rendered-->  
+             
             </div>
         </div>
+        @include('layouts.wa')
+        
         <!--**********************************
             Content body end
         ***********************************-->
@@ -146,7 +151,9 @@
 	<script src="{{ asset ('template/vendor/bootstrap-select/dist/js/bootstrap-select.min.js')}}"></script>
     <script src="{{ asset ('template/js/custom.min.js')}}"></script>
 	<script src="{{ asset ('template/js/deznav-init.js')}}"></script>
-	<!-- Apex Chart -->
+    <!-- Apex Chart -->
+    <script type="text/javascript" src="{{ asset ('wa/floating-wpp.min.js')}}"></script>
+    <link rel="stylesheet" href="{{ asset ('wa/floating-wpp.min.css')}}">
 	<script src="{{ asset ('template/vendor/apexchart/apexchart.js')}}"></script>
 	
 	
@@ -173,7 +180,17 @@
 
 			setInterval(refreshTime, 1000);
 		</script>
-	 
+	 <script type="text/javascript">
+      $('#myDiv').floatingWhatsApp({
+    phone: '+6282268916913',
+    popupMessage: 'Hello, Ada yang bisa saya bantu?',
+    position:'right',
+    showPopup: true,
+    showOnIE: false,
+    headerTitle: 'selamat datang!',
+    
+});
+      </script>
 
 </body>
 
